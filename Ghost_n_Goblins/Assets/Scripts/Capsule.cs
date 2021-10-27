@@ -25,26 +25,29 @@ public class Capsule : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         float xInput = Input.GetAxis("Horizontal") * playerSpeed;
 
         if (m_state == State.IDLE)
         {
             // Movement
-            Vector3 movement = xInput * transform.right * Time.deltaTime;
+            Vector3 movement = xInput * transform.right * playerSpeed * Time.deltaTime;
             transform.Translate(movement);
+            //m_rigidbody2D.MovePosition(m_rigidbody2D.position + (Vector2)movement);
 
             // Jump
             if (Input.GetKeyDown(KeyCode.Space))
-                isJump = true;            
-        }     
+                isJump = true;
+        }
     }
 
     private void FixedUpdate()
     {
         // Jump
         if (isJump)
-            m_rigidbody2D.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);       
+        {
+            m_rigidbody2D.velocity = Vector3.up * jumpForce;
+           // m_rigidbody2D.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse); 
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

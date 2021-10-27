@@ -433,7 +433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_state: 0
-  playerSpeed: 7.5
+  playerSpeed: 5
   jumpForce: 5
 --- !u!1 &1837519386
 GameObject:
