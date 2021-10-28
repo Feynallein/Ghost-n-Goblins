@@ -28,7 +28,7 @@ public class ScrollingBackground : MonoBehaviour {
         if(children.Length > 1) {
             GameObject firstChild = children[1].gameObject;
             GameObject lastChild = children[children.Length - 1].gameObject;
-            float halfObjectWidth = lastChild.GetComponent<SpriteRenderer>().bounds.extents.x - choke;
+            float halfObjectWidth = lastChild.GetComponent<SpriteRenderer>().bounds.extents.x - _Choke;
             if(transform.position.x + _ScreenBounds.x > lastChild.transform.position.x + halfObjectWidth) {
                 firstChild.transform.SetAsLastSibling();
                 firstChild.transform.position = new Vector3(lastChild.transform.position.x + halfObjectWidth * 2, lastChild.transform.position.y, lastChild.transform.position.z);
