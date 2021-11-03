@@ -10,6 +10,8 @@ public class MovingPlateform : MonoBehaviour {
     [Tooltip("Time the plateform wait at each end in seconds")]
     [SerializeField] float _WaitingTime;
 
+    public float Speed { get { return _Speed; } }
+
     // X origin of the plateform
     float _xOrigin;
 

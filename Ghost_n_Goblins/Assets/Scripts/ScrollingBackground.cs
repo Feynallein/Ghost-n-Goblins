@@ -8,6 +8,10 @@ public class ScrollingBackground : MonoBehaviour {
     Camera _MainCamera;
     Vector2 _ScreenBounds;
 
+    //PASSER LE BG (et mapending et mapbeginning dans playeranchored et player AVEC DES EVENTS A LA FIN DU LOAD DE LA SCENE
+    // car ils doivent etre dnasl a scene 1 et non dans la scene game
+    // cest just un hack le temps de
+
     private void Start() {
         _MainCamera = gameObject.GetComponent<Camera>();
         _ScreenBounds = _MainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, _MainCamera.transform.position.z));
@@ -29,15 +33,15 @@ public class ScrollingBackground : MonoBehaviour {
 
     private void LateUpdate() {
         Transform[] children = _Background.GetComponentsInChildren<Transform>();
-        if(children.Length > 1) {
+        if (children.Length > 1) {
             GameObject firstChild = children[1].gameObject;
             GameObject lastChild = children[children.Length - 1].gameObject;
             float halfObjectWidth = lastChild.GetComponent<SpriteRenderer>().bounds.extents.x;
-            if(_MainCamera.transform.position.x > lastChild.transform.position.x + (halfObjectWidth/4)) {
+            if (_MainCamera.transform.position.x > lastChild.transform.position.x + (halfObjectWidth / 4)) {
                 firstChild.transform.SetAsLastSibling();
                 firstChild.transform.position = new Vector3(lastChild.transform.position.x + halfObjectWidth * 2, lastChild.transform.position.y, lastChild.transform.position.z);
             }
-            else if(_MainCamera.transform.position.x < firstChild.transform.position.x + (halfObjectWidth/4)) {
+            else if (_MainCamera.transform.position.x < firstChild.transform.position.x + (halfObjectWidth / 4)) {
                 lastChild.transform.SetAsFirstSibling();
                 lastChild.transform.position = new Vector3(firstChild.transform.position.x - halfObjectWidth * 2, firstChild.transform.position.y, firstChild.transform.position.z);
             }
