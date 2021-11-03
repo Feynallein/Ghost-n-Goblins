@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7048995655440342348}
   - component: {fileID: 2977868354958543230}
   - component: {fileID: 3425786564514515626}
+  - component: {fileID: -8364740938962130270}
   m_Layer: 0
   m_Name: Lance
   m_TagString: Untagged
@@ -48,7 +49,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -70,6 +71,19 @@ CapsuleCollider2D:
   m_Offset: {x: 1.58, y: -0}
   m_Size: {x: 14.37, y: 3.54}
   m_Direction: 1
+--- !u!114 &-8364740938962130270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7048995655440342349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf3d93590c737b949bad47950a348ccd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_speed: 10
 --- !u!1 &7048995655606700196
 GameObject:
   m_ObjectHideFlags: 0

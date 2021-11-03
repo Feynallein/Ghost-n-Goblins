@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class Weapon : MonoBehaviour
 {
     [SerializeField]
@@ -9,10 +10,15 @@ public class Weapon : MonoBehaviour
 
     Rigidbody2D rb2D;
 
+    private void Awake()
+    {
+        rb2D = GetComponent<Rigidbody2D>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+
         rb2D.AddForce(transform.right * m_speed, ForceMode2D.Impulse);
     }
 
