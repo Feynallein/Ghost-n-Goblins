@@ -29,6 +29,7 @@ public class ScrollingBackground : MonoBehaviour {
 
     private void LateUpdate() {
         Transform[] children = _Background.GetComponentsInChildren<Transform>();
+<<<<<<< HEAD
         if(children.Length > 1) {
             GameObject firstChild = children[1].gameObject;
             GameObject lastChild = children[children.Length - 1].gameObject;
@@ -38,9 +39,24 @@ public class ScrollingBackground : MonoBehaviour {
                 firstChild.transform.position = new Vector3(lastChild.transform.position.x + halfObjectWidth * 2, lastChild.transform.position.y, lastChild.transform.position.z);
             }
             else if(_MainCamera.transform.position.x < firstChild.transform.position.x + (halfObjectWidth/4)) {
+=======
+        if (children.Length > 1) {
+            GameObject firstChild = children[1].gameObject;
+            GameObject lastChild = children[children.Length - 1].gameObject;
+            float halfObjectWidth = lastChild.GetComponent<SpriteRenderer>().bounds.extents.x;
+            if (_MainCamera.transform.position.x > lastChild.transform.position.x + (halfObjectWidth / 4)) {
+                firstChild.transform.SetAsLastSibling();
+                firstChild.transform.position = new Vector3(lastChild.transform.position.x + halfObjectWidth * 2, lastChild.transform.position.y, lastChild.transform.position.z);
+            }
+            else if (_MainCamera.transform.position.x < firstChild.transform.position.x + (halfObjectWidth / 4)) {
+>>>>>>> Martin
                 lastChild.transform.SetAsFirstSibling();
                 lastChild.transform.position = new Vector3(firstChild.transform.position.x - halfObjectWidth * 2, firstChild.transform.position.y, firstChild.transform.position.z);
             }
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> Martin

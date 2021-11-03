@@ -6,6 +6,8 @@ public class Player : MonoBehaviour
 {   
     [SerializeField] float m_playerSpeed;
     [SerializeField] float m_jumpForce;
+    [SerializeField] Transform _MapBeginning;
+    [SerializeField] Transform _MapEnding;
 
     Rigidbody2D m_rigidbody2D;
 
@@ -18,6 +20,8 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         // Movement
+        transform.position = transform.position.x < _MapBeginning.position.x ? new Vector3(_MapBeginning.position.x, transform.position.y, transform.position.z) : transform.position;
+        transform.position = transform.position.x > _MapEnding.position.x ? new Vector3(_MapEnding.position.x, transform.position.y, transform.position.z) : transform.position;
         Move();
 
         // Jump
