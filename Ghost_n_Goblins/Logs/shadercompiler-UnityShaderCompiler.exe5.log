@@ -1,29 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 Base path: 'C:/Program Files/Unity/Hub/Editor/2020.3.20f1/Editor/Data', plugins path 'C:/Program Files/Unity/Hub/Editor/2020.3.20f1/Editor/Data/PlaybackEngines'
 Cmd: initializeCompiler
 
 Cmd: shutdown
-=======
-<<<<<<< Updated upstream
-Base path: 'C:/Program Files/Unity/Hub/Editor/2020.3.20f1/Editor/Data', plugins path 'C:/Program Files/Unity/Hub/Editor/2020.3.20f1/Editor/Data/PlaybackEngines'
-Cmd: initializeCompiler
-
-Cmd: shutdown
-<<<<<<< HEAD
-=======
-=======
-Base path: 'F:/2020.3.20f1/Editor/Data', plugins path 'F:/2020.3.20f1/Editor/Data/PlaybackEngines'
-Cmd: initializeCompiler
-
-Cmd: shutdown
-
-Quitting shader compiler process
->>>>>>> Stashed changes
->>>>>>> Dev
->>>>>>> Dev
-=======
-Base path: 'C:/Program Files/Unity/Hub/Editor/2020.3.20f1/Editor/Data', plugins path 'C:/Program Files/Unity/Hub/Editor/2020.3.20f1/Editor/Data/PlaybackEngines'
-Cmd: initializeCompiler
-
->>>>>>> Martin
