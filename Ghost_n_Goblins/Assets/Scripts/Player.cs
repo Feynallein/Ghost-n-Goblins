@@ -42,10 +42,12 @@ public class Player : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground")) _IsGrounded = true;
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground")) 
+            _IsGrounded = true;
     }
 
     private void OnCollisionExit2D(Collision2D collision) {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground")) _IsGrounded = false;
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground")) 
+            _IsGrounded = false;
     }
 }
