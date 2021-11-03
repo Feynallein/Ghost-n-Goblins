@@ -6,12 +6,15 @@ public class Player : MonoBehaviour
 {   
     [SerializeField] float m_playerSpeed;
     [SerializeField] float m_jumpForce;
+
     [SerializeField] Transform _MapBeginning;
     [SerializeField] Transform _MapEnding;
 
     Rigidbody2D m_rigidbody2D;
 
     [SerializeField] bool _IsGrounded = true;
+
+    float _PlateformSpeed;
 
     private void Awake() {
         m_rigidbody2D = GetComponent<Rigidbody2D>();
