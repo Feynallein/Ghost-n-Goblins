@@ -15,6 +15,7 @@ C:/Users/Blue/Documents/UnityProjects/Ghost-n-Goblins/Ghost_n_Goblins
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 60678
 Successfully changed project path to: C:/Users/Blue/Documents/UnityProjects/Ghost-n-Goblins/Ghost_n_Goblins
@@ -28,6 +29,13 @@ C:/Users/Blue/Documents/UnityProjects/Ghost-n-Goblins/Ghost_n_Goblins
 Using Asset Import Pipeline V2.
 Refreshing native plugins compatible for Editor in 47.88 ms, found 3 plugins.
 >>>>>>> Dev
+=======
+57856
+Successfully changed project path to: C:/Users/feyna/M1 2021-2022/Ghost-n-Goblins/Ghost_n_Goblins
+C:/Users/feyna/M1 2021-2022/Ghost-n-Goblins/Ghost_n_Goblins
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 130.17 ms, found 3 plugins.
+>>>>>>> Stashed changes
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.20f1 (41c4e627c95f)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.20f1/Editor/Data/Resources/UnitySubsystems
@@ -43,6 +51,7 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.20f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.20f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.20f1/Editor/Data/MonoBleedingEdge/etc'
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56500
 Begin MonoManager ReloadAssembly
@@ -72,10 +81,26 @@ Domain Reload Profiling:
 	ReloadAssembly (2020ms)
 		BeginReloadAssembly (51ms)
 >>>>>>> Dev
+=======
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56308
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.20f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.003590 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 118.01 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.602 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2603ms)
+		BeginReloadAssembly (134ms)
+>>>>>>> Stashed changes
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
+<<<<<<< Updated upstream
 			CreateAndSetChildDomain (1ms)
 <<<<<<< HEAD
 		EndReloadAssembly (459ms)
@@ -108,12 +133,30 @@ Domain Reload Profiling:
 				ProcessInitializeOnLoadAttributes (78ms)
 				ProcessInitializeOnLoadMethodAttributes (27ms)
 >>>>>>> Dev
+=======
+			CreateAndSetChildDomain (2ms)
+		EndReloadAssembly (1084ms)
+			LoadAssemblies (129ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (389ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (70ms)
+			SetupLoadedEditorAssemblies (457ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (9ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (118ms)
+				BeforeProcessingInitializeOnLoad (54ms)
+				ProcessInitializeOnLoadAttributes (209ms)
+				ProcessInitializeOnLoadMethodAttributes (65ms)
+>>>>>>> Stashed changes
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 Registered in 0.003354 seconds.
 Begin MonoManager ReloadAssembly
@@ -125,10 +168,23 @@ Mono: successfully reloaded assembly
 Domain Reload Profiling:
 	ReloadAssembly (1246ms)
 		BeginReloadAssembly (183ms)
+=======
+Registered in 0.006332 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.97 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.700 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2702ms)
+		BeginReloadAssembly (355ms)
+>>>>>>> Stashed changes
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (4ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
+<<<<<<< Updated upstream
 			CreateAndSetChildDomain (32ms)
 		EndReloadAssembly (998ms)
 			LoadAssemblies (103ms)
@@ -205,6 +261,39 @@ Total: 3.150100 ms (FindLiveObjects: 0.184100 ms CreateObjectMapping: 0.059300 m
 Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 2420.
 Total: 3.112600 ms (FindLiveObjects: 0.173200 ms CreateObjectMapping: 0.065500 ms MarkObjects: 2.757500 ms  DeleteObjects: 0.114900 ms)
 >>>>>>> Dev
+=======
+			CreateAndSetChildDomain (47ms)
+		EndReloadAssembly (2195ms)
+			LoadAssemblies (217ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (734ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (147ms)
+			SetupLoadedEditorAssemblies (854ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (15ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (204ms)
+				ProcessInitializeOnLoadAttributes (589ms)
+				ProcessInitializeOnLoadMethodAttributes (30ms)
+				AfterProcessingInitializeOnLoad (13ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (16ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.28 seconds
+Refreshing native plugins compatible for Editor in 0.88 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1980 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 91.2 MB.
+System memory in use after: 91.3 MB.
+
+Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 2421.
+Total: 5.999400 ms (FindLiveObjects: 0.314600 ms CreateObjectMapping: 0.166600 ms MarkObjects: 5.376400 ms  DeleteObjects: 0.139600 ms)
+>>>>>>> Stashed changes
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -218,6 +307,7 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
+<<<<<<< Updated upstream
 <<<<<<< HEAD
   path: Assets/Scenes/SampleScene.unity
   artifactKey: Guid(be03654f1e96b7642a8ea7423b04136d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
@@ -465,3 +555,67 @@ Received Import Request.
 Start importing Assets/Scripts/Weapon.cs using Guid(cf3d93590c737b949bad47950a348ccd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '69405ab9a00b8803fb5e5b25d13341c4') in 0.005514 seconds 
   Import took 0.009035 seconds .
 
+=======
+  path: Assets/3D Models/Items/Axe.fbx
+  artifactKey: Guid(4ddf1c319c20e0a479f632e903ca8f20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3D Models/Items/Axe.fbx using Guid(4ddf1c319c20e0a479f632e903ca8f20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '18fb79245cabb9f16d8cfbb30fd1a492') in 0.507120 seconds 
+  Import took 0.523561 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 76.384026 seconds.
+  path: Assets/Prefabs/Plane.prefab
+  artifactKey: Guid(ef8acf54767e2fa439dd14e552f86ae9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Plane.prefab using Guid(ef8acf54767e2fa439dd14e552f86ae9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1195487a8db824aba2c26f5dfa9755d7') in 0.069259 seconds 
+  Import took 0.092941 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.260442 seconds.
+  path: Assets/Prefabs/AxePrefab.prefab
+  artifactKey: Guid(ef8acf54767e2fa439dd14e552f86ae9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/AxePrefab.prefab using Guid(ef8acf54767e2fa439dd14e552f86ae9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4fc3ac9489c992cf44c250b888466e7c') in 0.044356 seconds 
+  Import took 0.064082 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 30.992120 seconds.
+  path: Assets/3D Models/Items/Shield.fbx
+  artifactKey: Guid(a3e97ff9eb42e0a47be7e3b74aa6eaae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3D Models/Items/Shield.fbx using Guid(a3e97ff9eb42e0a47be7e3b74aa6eaae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d26af08c41fbb63d5b6fd9d16cf0f14') in 0.108596 seconds 
+  Import took 0.149466 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 25.000649 seconds.
+  path: Assets/3D Models/Items/Shield.fbx
+  artifactKey: Guid(a3e97ff9eb42e0a47be7e3b74aa6eaae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3D Models/Items/Shield.fbx using Guid(a3e97ff9eb42e0a47be7e3b74aa6eaae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '158b3203f3e35fb30d366f91a18f539a') in 0.054648 seconds 
+  Import took 0.074697 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 33.326264 seconds.
+  path: Assets/Prefabs/Cube.prefab
+  artifactKey: Guid(b7f2685873e8f304baa3e5b13ad27292) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cube.prefab using Guid(b7f2685873e8f304baa3e5b13ad27292) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc975e9c7eff7a26c5a5154815d0b68d') in 0.062953 seconds 
+  Import took 0.075917 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.033194 seconds.
+  path: Assets/Prefabs/ShieldPrefab.prefab
+  artifactKey: Guid(b7f2685873e8f304baa3e5b13ad27292) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/ShieldPrefab.prefab using Guid(b7f2685873e8f304baa3e5b13ad27292) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e3289dccb90a2555dc29eab386c58bb') in 0.040517 seconds 
+  Import took 0.068254 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.823659 seconds.
+  path: Assets/Prefabs/AxePrefab.prefab
+  artifactKey: Guid(ef8acf54767e2fa439dd14e552f86ae9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/AxePrefab.prefab using Guid(ef8acf54767e2fa439dd14e552f86ae9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33360569537e1e57e9e89738afade25c') in 0.071614 seconds 
+  Import took 0.133372 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
+>>>>>>> Stashed changes
