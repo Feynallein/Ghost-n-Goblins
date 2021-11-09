@@ -3,15 +3,29 @@ namespace GhostsnGoblins {
     using System.Collections.Generic;
     using UnityEngine;
     using SDD.Events;
+    using System;
+
+    [Serializable] public enum Weapon {Lance, Dagger, Torch, Axe, Shield }
 
     [RequireComponent(typeof(Moving))]
+    [RequireComponent(typeof(Shoot))]
     public class Player : SimpleGameStateObserver {
         [SerializeField] List<Behaviour> _Behaviours;
         Moving MovingScript;
+        Shoot ShootingScript;
+
+        int currentWeapon = 0; //temporary
+
+        //TEMPORARY
+        private void Update() {
+            if (Input.GetKeyDown(KeyCode.G)) EventManager.Instance.Raise(new WeaponSwapEvent() { eWeapon = (Weapon) (++currentWeapon%5) });
+        }
+        // END OF TEMPORARY
 
         protected override void Awake() {
             base.Awake();
             MovingScript = GetComponent<Moving>();
+            ShootingScript = GetComponent<Shoot>();
         }
 
         void ActivatePlayer(bool active) {
@@ -26,6 +40,20 @@ namespace GhostsnGoblins {
 
         void ActivateBehaviour(bool active) {
             foreach (var c in _Behaviours) c.enabled = active;
+        }
+
+        void ChangeCurrentWeapon(Weapon weapon) {
+            ShootingScript.CurrentWeapon = weapon;
+        }
+
+        public override void SubscribeEvents() {
+            base.SubscribeEvents();
+            EventManager.Instance.AddListener<WeaponSwapEvent>(WeaponSwap);
+        }
+
+        public override void UnsubscribeEvents() {
+            base.UnsubscribeEvents();
+            EventManager.Instance.RemoveListener<WeaponSwapEvent>(WeaponSwap);
         }
 
         #region Callbacks to Events
@@ -48,6 +76,10 @@ namespace GhostsnGoblins {
         protected override void LevelReady(LevelReadyEvent e) {
             MovingScript.SetPositionAndMapBounds(e.ePlayerSpawnPoint.position, e.eMapBeginning, e.eMapEnding);
         }
+
+        void WeaponSwap(WeaponSwapEvent e) {
+            ChangeCurrentWeapon(e.eWeapon);
+        }
         #endregion
 
         #region Collision stuff
@@ -68,6 +100,10 @@ namespace GhostsnGoblins {
                 //TEMP
                 EventManager.Instance.Raise(new GameVictoryEvent());
             }
+        }
+
+        private void OnTriggerStay2D(Collider2D collision) {
+            //LADDERS STUFF
         }
 
         private void OnCollisionExit2D(Collision2D collision) {

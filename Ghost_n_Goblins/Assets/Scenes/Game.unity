@@ -648,6 +648,7 @@ MonoBehaviour:
   _MainMenuPanel: {fileID: 9218302729779904915}
   _PausePanel: {fileID: 0}
   _GameOverPanel: {fileID: 0}
+  _VictoryPanel: {fileID: 0}
 --- !u!4 &631813151
 Transform:
   m_ObjectHideFlags: 0
@@ -1106,8 +1107,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a732f95b1b12834c88102d17de736bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponGO: {fileID: 7048995655440342349, guid: c8c67b6abacba2e4189d67c4be879204, type: 3}
   spawnPoint: {fileID: 1758189830}
+  weaponTable:
+  - weapon: 0
+    weaponPrefab: {fileID: 7048995655440342349, guid: c8c67b6abacba2e4189d67c4be879204, type: 3}
+  - weapon: 1
+    weaponPrefab: {fileID: 7048995655440342349, guid: c8c67b6abacba2e4189d67c4be879204, type: 3}
+  - weapon: 2
+    weaponPrefab: {fileID: 7048995655440342349, guid: c8c67b6abacba2e4189d67c4be879204, type: 3}
+  - weapon: 3
+    weaponPrefab: {fileID: 6625708298018116160, guid: ef8acf54767e2fa439dd14e552f86ae9, type: 3}
+  - weapon: 4
+    weaponPrefab: {fileID: 1632626183310877197, guid: b7f2685873e8f304baa3e5b13ad27292, type: 3}
 --- !u!114 &952122322
 MonoBehaviour:
   m_ObjectHideFlags: 0
