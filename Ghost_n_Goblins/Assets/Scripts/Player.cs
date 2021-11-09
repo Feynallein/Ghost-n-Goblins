@@ -6,12 +6,15 @@ public class Player : MonoBehaviour
 {   
     [SerializeField] float m_playerSpeed;
     [SerializeField] float m_jumpForce;
+
     [SerializeField] Transform _MapBeginning;
     [SerializeField] Transform _MapEnding;
 
     Rigidbody2D m_rigidbody2D;
 
     [SerializeField] bool _IsGrounded = true;
+
+    float _PlateformSpeed;
 
     private void Awake() {
         m_rigidbody2D = GetComponent<Rigidbody2D>();
@@ -39,10 +42,12 @@ public class Player : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground")) _IsGrounded = true;
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground")) 
+            _IsGrounded = true;
     }
 
     private void OnCollisionExit2D(Collision2D collision) {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground")) _IsGrounded = false;
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground")) 
+            _IsGrounded = false;
     }
 }

@@ -8,6 +8,10 @@ public class ScrollingBackground : MonoBehaviour {
     Camera _MainCamera;
     Vector2 _ScreenBounds;
 
+    //PASSER LE BG (et mapending et mapbeginning dans playeranchored et player AVEC DES EVENTS A LA FIN DU LOAD DE LA SCENE
+    // car ils doivent etre dnasl a scene 1 et non dans la scene game
+    // cest just un hack le temps de
+
     private void Start() {
         _MainCamera = gameObject.GetComponent<Camera>();
         _ScreenBounds = _MainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, _MainCamera.transform.position.z));
