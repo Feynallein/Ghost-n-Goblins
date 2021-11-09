@@ -205,6 +205,7 @@ GameObject:
   - component: {fileID: 2266243692223070767}
   - component: {fileID: 6964682857418924973}
   - component: {fileID: 8493362776176758137}
+  - component: {fileID: 1078489739669267641}
   m_Layer: 0
   m_Name: MoneyBagPref
   m_TagString: Untagged
@@ -256,3 +257,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _RotationSpeed: 30
+--- !u!114 &1078489739669267641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7555022996535510783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f69cb943824cec64c84c5f137cd9ae6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Score: 500
