@@ -318,6 +318,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GreenMonsters
       objectReference: {fileID: 0}
+    - target: {fileID: 9125444874045423493, guid: 949d2debb52980145b927a16be9e8731, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 9125444874045423495, guid: 949d2debb52980145b927a16be9e8731, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -19646,7 +19650,7 @@ Tilemap:
       - {fileID: 21300000, guid: 4f022c88555b6124fa7a175f48bfb2df, type: 3}
       - {fileID: 21300000, guid: df62a18642b021a44a67c34a20008caa, type: 3}
       - {fileID: 21300000, guid: 1a32dbef38a49374794e3a85782e3028, type: 3}
-      m_AnimationSpeed: 15
+      m_AnimationSpeed: 15.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 125, y: -2, z: 0}
@@ -19784,7 +19788,7 @@ Tilemap:
       - {fileID: 21300000, guid: 4f022c88555b6124fa7a175f48bfb2df, type: 3}
       - {fileID: 21300000, guid: df62a18642b021a44a67c34a20008caa, type: 3}
       - {fileID: 21300000, guid: 1a32dbef38a49374794e3a85782e3028, type: 3}
-      m_AnimationSpeed: 15
+      m_AnimationSpeed: 15.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 172, y: -2, z: 0}
@@ -20248,6 +20252,10 @@ PrefabInstance:
     - target: {fileID: 9125444874045423493, guid: 949d2debb52980145b927a16be9e8731, type: 3}
       propertyPath: m_Name
       value: GreenMonsters (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9125444874045423493, guid: 949d2debb52980145b927a16be9e8731, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9125444874045423495, guid: 949d2debb52980145b927a16be9e8731, type: 3}
       propertyPath: m_RootOrder
@@ -20890,6 +20898,10 @@ PrefabInstance:
     - target: {fileID: 9125444874045423493, guid: 949d2debb52980145b927a16be9e8731, type: 3}
       propertyPath: m_Name
       value: GreenMonsters (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9125444874045423493, guid: 949d2debb52980145b927a16be9e8731, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9125444874045423495, guid: 949d2debb52980145b927a16be9e8731, type: 3}
       propertyPath: m_RootOrder

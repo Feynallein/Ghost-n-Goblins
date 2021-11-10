@@ -9,18 +9,25 @@ public abstract class Projectile : MonoBehaviour {
 
     protected Rigidbody2D _Rigidbody2D;
 
-    protected virtual void Awake() {
+    protected virtual void Awake() 
+	{
         _Rigidbody2D = GetComponent<Rigidbody2D>();
-        Destroy(gameObject, 3f); //temporary
+        Destroy(gameObject, 2f); //temporary
     }
 
-    private void Start() {
+    private void Start() 
+	{
         Move();
     }
 
     protected abstract void Move();
-    private void OnCollisionEnter2D(Collision2D collision) {
+    private void OnCollisionEnter2D(Collision2D collision) 
+	{
         Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-        if (enemy != null) enemy.TakeDamage(_Damage);
+		if (enemy != null)
+		{ 
+			enemy.TakeDamage(_Damage);
+			Destroy(gameObject);
+		}
     }
 }
