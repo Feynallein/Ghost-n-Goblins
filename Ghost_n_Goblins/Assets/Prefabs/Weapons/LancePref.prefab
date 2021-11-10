@@ -68,8 +68,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.48315102, y: 0.0077223806}
-  m_Size: {x: 4.23587, y: 0.71298933}
+  m_Offset: {x: 0.3356941, y: 0.0077223983}
+  m_Size: {x: 2.7869625, y: 0.7129916}
   m_Direction: 1
 --- !u!114 &-8364740938962130270
 MonoBehaviour:
@@ -83,7 +83,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf3d93590c737b949bad47950a348ccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 10
+  _Damage: 1
+  _Speed: 10
 --- !u!1 &7048995655606700196
 GameObject:
   m_ObjectHideFlags: 0

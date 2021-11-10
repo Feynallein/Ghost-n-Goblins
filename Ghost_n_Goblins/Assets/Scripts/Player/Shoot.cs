@@ -19,10 +19,7 @@ namespace GhostsnGoblins {
         public Weapon GetCurrentWeapon { get; } //TEMPOPRARY
 
         void Update() {
-            Debug.Log(_CurrentWeapon + " " + (int) _CurrentWeapon);
-            if (Input.GetButtonDown("Fire1")) {
-                ShootWeapon();
-            }
+            if (Input.GetButtonDown("Fire1")) ShootWeapon();
         }
 
         void ShootWeapon() {
