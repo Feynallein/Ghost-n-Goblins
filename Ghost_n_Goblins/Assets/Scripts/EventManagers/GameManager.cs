@@ -6,6 +6,9 @@
     using SDD.Events;
     using System.Linq;
 
+
+    // TODO: commenting
+
     public enum GameState { gameMenu, gamePlay, initializingLevel, gamePause, gameOver, gameVictory }
 
     public class GameManager : Manager<GameManager> {
@@ -35,7 +38,6 @@
             EventManager.Instance.Raise(new GameStatisticsChangedEvent() { eBestScore = BestScore, eScore = _Score, eNLives = _NLives, eTimer = _Timer });
         }
         #endregion
-
 
         #region Score
         private int _Score;
@@ -76,7 +78,6 @@
             if (raiseEvent) EventManager.Instance.Raise(new GameStatisticsChangedEvent() { eBestScore = BestScore, eScore = _Score, eNLives = _NLives, eTimer = _Timer });
         }
         #endregion
-
 
         #region Events' subscription
         public override void SubscribeEvents() {
@@ -154,6 +155,7 @@
 
         private void EscapeButtonClicked(EscapeButtonClickedEvent e) {
             if (IsPlaying) Pause();
+            //else if menu quit?
         }
 
         private void QuitButtonClicked(QuitButtonClickedEvent e) {

@@ -4,5 +4,5 @@ using UnityEngine;
 
 // Every scorable things extends this interface
 public interface IScore {
-    int Score { get; }
+    int Score { get; } // Getter to the score variable
 }

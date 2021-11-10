@@ -31,6 +31,7 @@
         public GameObject eBackground;
         public Transform eMapBeginning;
         public Transform eMapEnding;
+        public Transform eKey;
     }
 
     public class BossKilledEvent : SDD.Events.Event {
@@ -44,6 +45,9 @@
         public int eNLives { get; set; }
 
         public float eTimer { get; set; }
+    }
+
+    public class SceneLoadedEvent : SDD.Events.Event {
     }
 
     public class WeaponSwapEvent : SDD.Events.Event {
