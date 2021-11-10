@@ -35,6 +35,7 @@
         }
 
         private void LateUpdate() {
+            // Updating the background if needed
             if (!GameManager.Instance.IsPlaying) return;
             Transform[] children = _Background.GetComponentsInChildren<Transform>();
             if (children.Length > 1) {
@@ -55,6 +56,7 @@
 
         #region Camera methods
         void InitializeChildren() {
+            // Calculating and initializing how much backgrounds are needed
             float BackgroundWidth = _Background.GetComponent<SpriteRenderer>().bounds.size.x;
             int childsNeeded = 2;
             GameObject clone = Instantiate(_Background) as GameObject;
@@ -68,6 +70,7 @@
         }
 
         void SetUpMapPointsAndBackground(Transform mapBeginning, Transform mapEnding, GameObject background) {
+            // Setting the points and the background
             _MapBeginning = mapBeginning;
             _MapEnding = mapEnding;
             _Background = background;

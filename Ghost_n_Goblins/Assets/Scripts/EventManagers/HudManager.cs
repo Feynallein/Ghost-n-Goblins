@@ -6,13 +6,20 @@
     using SDD.Events;
 
     public class HudManager : Manager<HudManager> {
-        [Header("HudManager")]
-
-        #region Labels & Values
+        #region Variables
+        [Tooltip("HUD GameObject (global parent)")]
         [SerializeField] GameObject HUD;
+
+        [Tooltip("Score textfield")]
         [SerializeField] Text _Score;
+
+        [Tooltip("Timer textfield")]
         [SerializeField] Text _Timer;
+
+        [Tooltip("Life UI Image prefab")]
         [SerializeField] GameObject LifePrefab;
+
+        // List of gameobject who represents lives in the HUD
         List<GameObject> Lives = new List<GameObject>();
         #endregion
 
@@ -23,19 +30,24 @@
         }
 
         protected override IEnumerator InitCoroutine() {
-            yield break;
+            yield break; // nothing
         }
+        #endregion
 
+        #region HudManager Methods
         void SetScoreAndTimerUI(int score, float timer) {
+            // Set the score and the timer
             _Score.text = score.ToString();
             _Timer.text = timer.ToString("N01");
         }
 
         void SetHudActive(bool active) {
+            // Disable or Enable the HUD component
             HUD.SetActive(active);
         }
 
-        void SetLivesUI(int NLives) {
+        void SetLivesUI(int NLives) { //bug -> pas le bon scaling
+            // Change the number of lives displayed on the UI
             int actualLives = Lives.Count;
             float imageWidth = LifePrefab.transform.GetComponent<Image>().preferredWidth * LifePrefab.transform.localScale.x;
             if (NLives == actualLives) return;
@@ -57,7 +69,7 @@
         }
         #endregion
 
-        #region Callbacks to GameManager events
+        #region Event's Callbacks
         protected override void GamePlay(GamePlayEvent e) {
             SetHudActive(true);
         }
@@ -67,6 +79,5 @@
             SetLivesUI(e.eNLives);
         }
         #endregion
-
     }
 }

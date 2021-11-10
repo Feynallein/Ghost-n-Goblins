@@ -5,20 +5,24 @@ namespace GhostsnGoblins {
     using SDD.Events;
     using System;
 
-    [Serializable] public enum Weapon {Lance, Dagger, Torch, Axe, Shield }
+    // Enum of the different types of weapons
+    [Serializable] public enum Weapon { Lance, Dagger, Torch, Axe, Shield }
 
     [RequireComponent(typeof(Moving))]
     [RequireComponent(typeof(Shoot))]
     public class Player : SimpleGameStateObserver {
+        [Tooltip("List of player's behaviours")]
         [SerializeField] List<Behaviour> _Behaviours;
         Moving MovingScript;
         Shoot ShootingScript;
 
         int currentWeapon = 0; //temporary
 
+        #region Player Implementation
+
         //TEMPORARY
         private void Update() {
-            if (Input.GetKeyDown(KeyCode.G)) EventManager.Instance.Raise(new WeaponSwapEvent() { eWeapon = (Weapon) (++currentWeapon%5) });
+            if (Input.GetKeyDown(KeyCode.G)) EventManager.Instance.Raise(new WeaponSwapEvent() { eWeapon = (Weapon)(++currentWeapon % 5) });
         }
         // END OF TEMPORARY
 
@@ -27,12 +31,15 @@ namespace GhostsnGoblins {
             MovingScript = GetComponent<Moving>();
             ShootingScript = GetComponent<Shoot>();
         }
+        #endregion
 
+        #region Player methods
         void ActivatePlayer(bool active) {
             gameObject.SetActive(active);
             ActivateBehaviour(active);
             SetRigidbodyKinematic(!active);
         }
+
 
         void SetRigidbodyKinematic(bool isKinematic) {
             MovingScript.RigidbodyIsKinematic = isKinematic;
@@ -45,7 +52,9 @@ namespace GhostsnGoblins {
         void ChangeCurrentWeapon(Weapon weapon) {
             ShootingScript.CurrentWeapon = weapon;
         }
+        #endregion
 
+        #region Event's subscription
         public override void SubscribeEvents() {
             base.SubscribeEvents();
             EventManager.Instance.AddListener<WeaponSwapEvent>(WeaponSwap);
@@ -55,6 +64,7 @@ namespace GhostsnGoblins {
             base.UnsubscribeEvents();
             EventManager.Instance.RemoveListener<WeaponSwapEvent>(WeaponSwap);
         }
+        #endregion
 
         #region Callbacks to Events
         protected override void GamePlay(GamePlayEvent e) {
@@ -96,7 +106,7 @@ namespace GhostsnGoblins {
                 EventManager.Instance.Raise(new ScoreItemEvent() { eScore = score.Score });
                 Destroy(collision.gameObject);
             }
-            if(key != null) {
+            if (key != null) {
                 //TEMP
                 EventManager.Instance.Raise(new GameVictoryEvent());
             }

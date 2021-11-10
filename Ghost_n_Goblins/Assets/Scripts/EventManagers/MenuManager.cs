@@ -6,50 +6,46 @@
     using SDD.Events;
 
     public class MenuManager : Manager<MenuManager> {
-
-        [Header("MenuManager")]
-
         #region Panels
         [Header("Panels")]
+        [Tooltip("Panel displayed when in the main menu")]
         [SerializeField] GameObject _MainMenuPanel;
+
+        [Tooltip("Panel displayed when in pause")]
         [SerializeField] GameObject _PausePanel;
+
+        [Tooltip("Panel displayed when game over")]
         [SerializeField] GameObject _GameOverPanel;
+
+        [Tooltip("Panel displayed when victory")]
         [SerializeField] GameObject _VictoryPanel;
 
+        // List of all panels
         List<GameObject> _AllPanels;
-        #endregion
-
-        #region Events' subscription
-        public override void SubscribeEvents() {
-            base.SubscribeEvents();
-        }
-
-        public override void UnsubscribeEvents() {
-            base.UnsubscribeEvents();
-        }
         #endregion
 
         #region Manager implementation
         protected override IEnumerator InitCoroutine() {
-            yield break;
+            yield break; // nothing
         }
         #endregion
 
         #region Monobehaviour lifecycle
         protected override void Awake() {
+            // Register every panels
             base.Awake();
             RegisterPanels();
         }
 
         private void Update() {
-            if (Input.GetButtonDown("Cancel")) { //ptete changer a escape?
-                EscapeButtonHasBeenClicked();
-            }
+            // What to do if escape is pressed
+            if (Input.GetButtonDown("Cancel")) EscapeButtonHasBeenClicked();
         }
         #endregion
 
         #region Panel Methods
         void RegisterPanels() {
+            // Add every panels to the list
             _AllPanels = new List<GameObject>();
             _AllPanels.Add(_MainMenuPanel);
             _AllPanels.Add(_PausePanel);
@@ -58,12 +54,14 @@
         }
 
         void OpenPanel(GameObject panel) {
+            // Open a specific panel
             foreach (var item in _AllPanels)
                 if (item) item.SetActive(item == panel);
         }
         #endregion
 
         #region UI OnClick Events
+        /* Raising correspondent event */
         public void EscapeButtonHasBeenClicked() {
             EventManager.Instance.Raise(new EscapeButtonClickedEvent());
         }
@@ -87,6 +85,7 @@
         #endregion
 
         #region Callbacks to GameManager events
+        /* Displaying correspondent panel */
         protected override void GameMenu(GameMenuEvent e) {
             OpenPanel(_MainMenuPanel);
         }

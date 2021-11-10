@@ -12,6 +12,7 @@ public class RotateOnSelf : MonoBehaviour {
     }
 
     IEnumerator RotateOnSelfCoroutine() {
+        // Rotation on self
         while (true) {
             _RotatingObject.RotateAround(_RotatingObject.position, transform.up, Time.deltaTime * _RotationSpeed);
             yield return null;
