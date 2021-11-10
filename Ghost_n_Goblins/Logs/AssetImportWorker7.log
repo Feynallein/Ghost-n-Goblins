@@ -1,0 +1,21 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.20f1 (41c4e627c95f) revision 4310246'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Home; OS build 18363.1256; Version 1909; 64bit' Language: 'en' Physical Memory: 8050 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2020.3.20f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker7
+-projectPath
+C:/Users/feyna/M1 2021-2022/Ghost-n-Goblins/Ghost_n_Goblins
+-logFile
+Logs/AssetImportWorker7.log
+-srvPort
+59371
+Successfully changed project path to: C:/Users/feyna/M1 2021-2022/Ghost-n-Goblins/Ghost_n_Goblins
+C:/Users/feyna/M1 2021-2022/Ghost-n-Goblins/Ghost_n_Goblins
+Using Asset Import Pipeline V2.
