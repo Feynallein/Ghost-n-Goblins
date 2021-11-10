@@ -6,7 +6,7 @@ namespace GhostsnGoblins {
     public class GreenMonsters : Enemy {
         [Header("Monster specifications")]
         [Tooltip("Monter's projectile prefab")]
-        [SerializeField] GameObject GreenMonsterProjectilePrefab;
+        [SerializeField] GameObject _EyeBall;
 
         protected override void Attack() {
             //todo

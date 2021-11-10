@@ -20,6 +20,9 @@ namespace GhostsnGoblins {
         [Tooltip("If the monster loots a pot")]
         [SerializeField] bool _IsLooter;
 
+        [SerializeField] public GameObject _AttackRange;
+        [SerializeField] public GameObject _DetectionRange;
+
         // If the monster can attack
         bool _CanAttack;
 

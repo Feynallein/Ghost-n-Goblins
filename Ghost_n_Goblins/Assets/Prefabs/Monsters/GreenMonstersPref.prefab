@@ -56,9 +56,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2931257330334921592}
-  - component: {fileID: 8078002093675160753}
+  - component: {fileID: 4715978504396915685}
   m_Layer: 0
-  m_Name: AggroRange
+  m_Name: DetectionRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +78,7 @@ Transform:
   m_Father: {fileID: 9125444874045423495}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &8078002093675160753
+--- !u!58 &4715978504396915685
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,9 +105,10 @@ GameObject:
   - component: {fileID: 9125444874045423495}
   - component: {fileID: 9125444874045423492}
   - component: {fileID: 5444114258384821358}
-  - component: {fileID: 6347822922609131735}
+  - component: {fileID: 8427506685466506708}
+  - component: {fileID: 3854545398393597382}
   m_Layer: 0
-  m_Name: GreenMonsters
+  m_Name: GreenMonstersPref
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -172,23 +173,35 @@ MonoBehaviour:
   _Health: 1
   _DamageDealt: 1
   _IsLooter: 0
-  GreenMonsterProjectilePrefab: {fileID: 0}
---- !u!58 &6347822922609131735
-CircleCollider2D:
+  _AttackRange: {fileID: 5007521734244602007}
+  _DetectionRange: {fileID: 6228538061188718793}
+  _EyeBall: {fileID: 5339628988195019403, guid: 19bedbb23a3683544a22ef23f0d69850, type: 3}
+--- !u!114 &8427506685466506708
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9125444874045423493}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d0c96c868dac8c429fd9a6af010ca31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Range: 50
+--- !u!114 &3854545398393597382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9125444874045423493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eac257ff4c157c0408dcd88fc759647a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Range: 0
 --- !u!1 &9125444874321695087
 GameObject:
   m_ObjectHideFlags: 0
