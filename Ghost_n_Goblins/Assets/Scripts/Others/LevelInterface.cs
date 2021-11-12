@@ -28,6 +28,7 @@ namespace GhostsnGoblins {
                 eMapEnding = _MapEnding,
                 ePlayerSpawnPoint = _PlayerSpawnPoint,
                 eKey = _Key,
+                ePlayer = e.ePlayer,
             });
         }
     }

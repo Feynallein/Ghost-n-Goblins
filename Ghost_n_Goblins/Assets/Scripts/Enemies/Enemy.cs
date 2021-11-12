@@ -3,9 +3,7 @@ namespace GhostsnGoblins {
     using System.Collections.Generic;
     using UnityEngine;
 
-    [RequireComponent(typeof(AttackRange))]
-    [RequireComponent(typeof(DetectionRange))]
-    public abstract class Enemy : MonoBehaviour, IScore {
+    public abstract class Enemy : SimpleGameStateObserver, IScore {
         #region Variables
         [Header("Stats")]
         [Tooltip("Score value when killed")]
@@ -14,26 +12,32 @@ namespace GhostsnGoblins {
         [Tooltip("Monster's health")]
         [SerializeField] int _Health;
 
-        [Tooltip("Monster's damage")]
-        [SerializeField] int _DamageDealt;
-
         [Tooltip("If the monster loots a pot")]
         [SerializeField] bool _IsLooter;
 
         [SerializeField] public GameObject _AttackRange;
         [SerializeField] public GameObject _DetectionRange;
 
+        [Tooltip("Monster's projectile spawn point")]
+        [SerializeField] protected Transform _ProjectileSpawnPoint;
+
         // If the monster can attack
         bool _CanAttack;
 
         // If the player is in range
         bool _PlayerDected;
+
+        //The player
+        protected Transform _Player;
+
+        List<GameObject> _OnScreenProjectiles = new List<GameObject>();
         #endregion
 
         #region Enemy Implementation
-        private void Awake() {
+        protected override void Awake() {
+            base.Awake();
             // Set this enemy for each ranges
-            foreach (Range r in GetComponents<Range>()) {
+            foreach (Range r in transform.GetComponentsInChildren<Range>()) {
                 r.SetEnemy = this;
             }
         }
@@ -64,6 +68,29 @@ namespace GhostsnGoblins {
         void Loot() {
             //todo : loot a pot
         }
+
+        void SetPlayer(Transform player) {
+            _Player = player;
+        }
+
+        protected void ShootAtPlayer(GameObject projectile, float projectileSpeed, Transform projectileSpawnPoint, int numberOfProjectileOnScreen) {
+            if (_OnScreenProjectiles.Count > numberOfProjectileOnScreen) return;
+            GameObject newProjectile = Instantiate(projectile, projectileSpawnPoint);
+            newProjectile.transform.LookAt(_Player);
+            newProjectile.GetComponent<MonsterProjectile>().Speed = projectileSpeed;
+            newProjectile.GetComponent<MonsterProjectile>().Enemy = this;
+            _OnScreenProjectiles.Add(newProjectile);
+        }
+
+        public void ProjectileDestroyed(GameObject projectile) {
+            _OnScreenProjectiles.Remove(projectile);
+        }
+        #endregion
+
+        #region Event's Callbacks
+        protected override void LevelReady(LevelReadyEvent e) {
+            SetPlayer(e.ePlayer);
+        }
         #endregion
 
         #region Abstract methods
@@ -75,9 +102,9 @@ namespace GhostsnGoblins {
         #endregion
 
         #region Getter & Setters
-        public bool CanAttack { get; set; }
+        public bool CanAttack { set { _CanAttack = value; } }
 
-        public bool HasDetectedPlayer { get; set; }
+        public bool HasDetectedPlayer { set { _PlayerDected = value; } }
 
         public int Score { get { return _Score; } }
         #endregion

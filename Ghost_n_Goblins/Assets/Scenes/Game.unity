@@ -1436,6 +1436,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _DoNotDestroyGameObjectOnLoad: 0
   _DropDuration: 5
+  _Player: {fileID: 952122320}
 --- !u!4 &1451059076
 Transform:
   m_ObjectHideFlags: 0

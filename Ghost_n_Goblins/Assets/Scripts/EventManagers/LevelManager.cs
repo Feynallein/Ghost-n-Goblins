@@ -13,6 +13,8 @@
         [Tooltip("Key drop's duration in s")]
         [SerializeField] float _DropDuration;
 
+        [SerializeField] Transform _Player;
+
         // The key in the level
         Transform _Key;
 
@@ -53,7 +55,9 @@
             // Loading asynchronously a scene
             AsyncOperation load = SceneManager.LoadSceneAsync(name, LoadSceneMode.Additive);
             while (!load.isDone) yield return null; // loading screen would be here
-            EventManager.Instance.Raise(new SceneLoadedEvent());
+            EventManager.Instance.Raise(new SceneLoadedEvent() {
+                ePlayer = _Player,
+            });
         }
 
         // Dropping the key with a coroutine with easing function to have bouncing effect

@@ -3,14 +3,16 @@ namespace GhostsnGoblins {
     using System.Collections.Generic;
     using UnityEngine;
 
-    public class GreenMonsters : Enemy {
+    public class GreenMonster : Enemy {
         [Header("Monster specifications")]
         [Tooltip("Monter's projectile prefab")]
         [SerializeField] GameObject _EyeBall;
+        [SerializeField] float _ProjectileSpeed;
+        [SerializeField] int _ProjectileOnScreen;
 
         protected override void Attack() {
-            //todo
-            // Lauch a projectile at the player
+            // Type of attack
+            ShootAtPlayer(_EyeBall, _ProjectileSpeed, _ProjectileSpawnPoint, _ProjectileOnScreen);
         }
 
         protected override void Move() { // Empty: this monster doesn't move
