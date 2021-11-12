@@ -40,6 +40,10 @@ namespace GhostsnGoblins {
             SetRigidbodyKinematic(!active);
         }
 
+        public void TakeDamage() {
+            //todo: perdre l'armure puis perdre un coeur & recommencer au debut du niveau
+            Debug.Log("damage");
+        }
 
         void SetRigidbodyKinematic(bool isKinematic) {
             MovingScript.RigidbodyIsKinematic = isKinematic;

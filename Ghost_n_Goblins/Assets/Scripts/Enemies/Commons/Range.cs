@@ -3,28 +3,21 @@ namespace GhostsnGoblins {
     using System.Collections.Generic;
     using UnityEngine;
 
-    [RequireComponent(typeof(CircleCollider2D))]
     public abstract class Range : MonoBehaviour {
         [Tooltip("Range if this range (in meters")]
-        [SerializeField] int _Range;
+        [SerializeField] protected int _Range;
 
         // The enemy this range is attached to
         protected Enemy _Enemy;
 
-        #region Range Implementation
-        private void Awake() {
-            GetComponent<CircleCollider2D>().radius = _Range;
-        }
-        #endregion
-
         #region Collisions Methods
-        private void OnCollisionEnter2D(Collision2D collision) {
+        private void OnTriggerEnter2D(Collider2D collision) {
             // Return true if the player enter the range
             Player player = collision.gameObject.GetComponent<Player>();
             if (player != null) InRange(true);
         }
 
-        private void OnCollisionExit2D(Collision2D collision) {
+        private void OnTriggerExit2D(Collider2D collision) {
             // Return false if the player exit the range
             Player player = collision.gameObject.GetComponent<Player>();
             if (player != null) InRange(false);

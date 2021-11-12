@@ -32,6 +32,7 @@
         public Transform eMapBeginning;
         public Transform eMapEnding;
         public Transform eKey;
+        public Transform ePlayer;
     }
 
     public class BossKilledEvent : SDD.Events.Event {
@@ -48,6 +49,7 @@
     }
 
     public class SceneLoadedEvent : SDD.Events.Event {
+        public Transform ePlayer;
     }
 
     public class WeaponSwapEvent : SDD.Events.Event {
