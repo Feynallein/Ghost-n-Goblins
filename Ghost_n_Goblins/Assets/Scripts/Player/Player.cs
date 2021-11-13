@@ -97,33 +97,20 @@ public class Player : SimpleGameStateObserver {
     #endregion
 
     #region Collision stuff
-
-    private void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
-            MovingScript.IsGrounded = true;
-    }
-
     private void OnTriggerEnter2D(Collider2D collision) {
+        //Add water stuff (layer to water -> death)
         IScore score = collision.gameObject.GetComponent<IScore>();
         Key key = collision.gameObject.GetComponent<Key>();
+
         if (score != null) {
             EventManager.Instance.Raise(new ScoreItemEvent() { eScore = score.Score });
             Destroy(collision.gameObject);
         }
+
         if (key != null) {
             //TEMP
             EventManager.Instance.Raise(new GameVictoryEvent());
         }
     }
-
-    private void OnTriggerStay2D(Collider2D collision) {
-        //LADDERS STUFF
-    }
-
-    private void OnCollisionExit2D(Collision2D collision) {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
-            MovingScript.IsGrounded = false;
-    }
-
     #endregion
 }

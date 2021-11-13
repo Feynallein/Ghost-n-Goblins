@@ -1160,7 +1160,7 @@ GameObject:
   - component: {fileID: 952122318}
   - component: {fileID: 952122321}
   - component: {fileID: 952122322}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1283,9 +1283,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_playerSpeed: 5
   m_jumpForce: 3
-  _MapBeginning: {fileID: 0}
-  _MapEnding: {fileID: 0}
-  _IsGrounded: 1
+  _ClimbingSpeed: 0
+  _LadderLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
+  _GroundLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &984442839
 GameObject:
   m_ObjectHideFlags: 0
