@@ -1,4 +1,4 @@
-﻿namespace GhostsnGoblins {
+﻿namespace EventsManager {
     using System.Collections;
     using UnityEngine;
     using UnityEngine.UI;

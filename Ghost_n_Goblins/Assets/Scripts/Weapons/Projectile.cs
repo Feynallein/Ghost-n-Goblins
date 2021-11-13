@@ -1,28 +1,26 @@
-namespace GhostsnGoblins {
-    using System.Collections;
-    using System.Collections.Generic;
-    using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-    [RequireComponent(typeof(Rigidbody2D))]
-    public abstract class Projectile : MonoBehaviour {
-        [SerializeField] int _Damage;
-        [SerializeField] protected float _Speed;
+[RequireComponent(typeof(Rigidbody2D))]
+public abstract class Projectile : MonoBehaviour {
+    [SerializeField] int _Damage;
+    [SerializeField] protected float _Speed;
 
-        protected Rigidbody2D _Rigidbody2D;
+    protected Rigidbody2D _Rigidbody2D;
 
-        protected virtual void Awake() {
-            _Rigidbody2D = GetComponent<Rigidbody2D>();
-            Destroy(gameObject, 3f); //temporary
-        }
+    protected virtual void Awake() {
+        _Rigidbody2D = GetComponent<Rigidbody2D>();
+        Destroy(gameObject, 3f); //temporary
+    }
 
-        private void Start() {
-            Move();
-        }
+    private void Start() {
+        Move();
+    }
 
-        protected abstract void Move();
-        private void OnCollisionEnter2D(Collision2D collision) {
-            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-            if (enemy != null) enemy.TakeDamage(_Damage);
-        }
+    protected abstract void Move();
+    private void OnCollisionEnter2D(Collision2D collision) {
+        Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+        if (enemy != null) enemy.TakeDamage(_Damage);
     }
 }
