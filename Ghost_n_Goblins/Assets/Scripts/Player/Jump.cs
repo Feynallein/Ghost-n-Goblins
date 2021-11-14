@@ -18,10 +18,16 @@ public class Jump : MonoBehaviour {
         _Rigidbody2D = GetComponent<Rigidbody2D>();
         _BoxCollider2D = GetComponent<BoxCollider2D>();
     }
-
-    private void FixedUpdate() {
+    private void Update() {
         if (!GameManager.Instance.IsPlaying) return;
+
+        //Correction slight velocity changes (sometimes little velocity like x10^-6)
+        if (_Rigidbody2D.velocity.y < .1 && _Rigidbody2D.velocity.y > -.1) _Rigidbody2D.velocity = new Vector2(_Rigidbody2D.velocity.x, 0);
+
+        // Jumping if spacebar pressed!
         if (Input.GetKeyDown(KeyCode.Space)) JumpMethod();
+
+        // Changing gravity scale based on state (jumping or falling)
         if (_Rigidbody2D.velocity.y >= 0) _Rigidbody2D.gravityScale = _GravityScale;
         else if (_Rigidbody2D.velocity.y < 0) _Rigidbody2D.gravityScale = _FallingGravityScale;
     }

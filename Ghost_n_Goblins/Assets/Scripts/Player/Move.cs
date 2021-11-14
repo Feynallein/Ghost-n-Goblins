@@ -13,7 +13,6 @@ public class Move : MonoBehaviour {
     Transform _MapEnding;
 
     Rigidbody2D _Rigidbody2D;
-    public bool RigidbodyIsKinematic { set { _Rigidbody2D.isKinematic = value; } }
 
     bool _IsOnLadder = false;
 
@@ -27,9 +26,11 @@ public class Move : MonoBehaviour {
 
     private void FixedUpdate() {
         if (!GameManager.Instance.IsPlaying) return;
-       //CheckMapBounds();
-        //LeftRightMove();
-        //MoveUp();
+        CheckMapBounds();
+        LeftRightMove();
+        MoveUp();
+        _Rigidbody2D.angularVelocity = 0;
+        _Rigidbody2D.MoveRotation(0);
     }
 
     void CheckMapBounds() {
@@ -45,16 +46,12 @@ public class Move : MonoBehaviour {
         float vInput = Input.GetAxis("Vertical");
         float moveValue = vInput * _ClimbingSpeed;
         _Rigidbody2D.velocity = new Vector2(_Rigidbody2D.velocity.x, _Rigidbody2D.velocity.y + moveValue);
-        _Rigidbody2D.angularVelocity = 0;
-        _Rigidbody2D.MoveRotation(0);
     }
 
     void LeftRightMove() {
         float hInput = Input.GetAxisRaw("Horizontal");
-        Vector2 targetVelocity = Vector2.right * hInput * _MovementSpeed;
-        _Rigidbody2D.AddForce(targetVelocity - _Rigidbody2D.velocity, ForceMode.VelocityChange);
-        _Rigidbody2D.angularVelocity = 0;
-        _Rigidbody2D.MoveRotation(0);
+        float targetVelocity = hInput * _MovementSpeed;
+        _Rigidbody2D.AddForce(new Vector2(targetVelocity - _Rigidbody2D.velocity.x, 0), ForceMode.VelocityChange);
     }
 
     public void SetPositionAndMapBounds(Vector3 position, Transform mapBeginning, Transform mapEnding) {
@@ -66,6 +63,8 @@ public class Move : MonoBehaviour {
     void IsOnLadder(bool b) {
         _IsOnLadder = b;
     }
+
+    public bool RigidbodyIsKinematic { set { _Rigidbody2D.isKinematic = value; } }
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if ((_LadderLayerMask.value & (1 << collision.gameObject.layer)) > 0) IsOnLadder(true);
