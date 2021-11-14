@@ -8,12 +8,12 @@ using EventsManager;
 // Enum of the different types of weapons
 [Serializable] public enum Weapon { Lance, Dagger, Torch, Axe, Shield }
 
-[RequireComponent(typeof(Moving))]
+[RequireComponent(typeof(Move))]
 [RequireComponent(typeof(Shoot))]
 public class Player : SimpleGameStateObserver {
     [Tooltip("List of player's behaviours")]
     [SerializeField] List<Behaviour> _Behaviours;
-    Moving MovingScript;
+    Move MovingScript;
     Shoot ShootingScript;
 
     int currentWeapon = 0; //temporary
@@ -28,7 +28,7 @@ public class Player : SimpleGameStateObserver {
 
     protected override void Awake() {
         base.Awake();
-        MovingScript = GetComponent<Moving>();
+        MovingScript = GetComponent<Move>();
         ShootingScript = GetComponent<Shoot>();
     }
     #endregion

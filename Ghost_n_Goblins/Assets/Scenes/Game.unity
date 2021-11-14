@@ -1160,6 +1160,7 @@ GameObject:
   - component: {fileID: 952122318}
   - component: {fileID: 952122321}
   - component: {fileID: 952122322}
+  - component: {fileID: 952122323}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -1186,7 +1187,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &952122318
 BoxCollider2D:
@@ -1229,6 +1230,7 @@ MonoBehaviour:
   _Behaviours:
   - {fileID: 952122322}
   - {fileID: 952122321}
+  - {fileID: 952122323}
 --- !u!4 &952122320
 Transform:
   m_ObjectHideFlags: 0
@@ -1281,15 +1283,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5bebf0937bfb674c9438879215a32b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_playerSpeed: 5
-  m_jumpForce: 3
+  _MovementSpeed: 3
   _ClimbingSpeed: 0
   _LadderLayerMask:
     serializedVersion: 2
     m_Bits: 512
-  _GroundLayerMask:
+--- !u!114 &952122323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952122316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaba81624cdda9a46ac158e3c2769ff9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _JumpHeight: 3
+  _GravityScale: 10
+  _FallingGravityScale: 30
+  _GroundedLayerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 320
 --- !u!1 &984442839
 GameObject:
   m_ObjectHideFlags: 0
