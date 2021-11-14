@@ -13,8 +13,7 @@ public class Move : MonoBehaviour {
     Transform _MapEnding;
 
     Rigidbody2D _Rigidbody2D;
-
-    bool _IsOnLadder = false;
+    BoxCollider2D _BoxCollider2D;
 
     [Header("Layer masks")]
     [Tooltip("Layer to detect stuff with ladder related behaviour")]
@@ -22,13 +21,14 @@ public class Move : MonoBehaviour {
 
     void Awake() {
         _Rigidbody2D = GetComponent<Rigidbody2D>();
+        _BoxCollider2D = GetComponent<BoxCollider2D>();
     }
 
     private void FixedUpdate() {
         if (!GameManager.Instance.IsPlaying) return;
         CheckMapBounds();
         LeftRightMove();
-        MoveUp();
+        MoveOnLadder();
         _Rigidbody2D.angularVelocity = 0;
         _Rigidbody2D.MoveRotation(0);
     }
@@ -41,11 +41,19 @@ public class Move : MonoBehaviour {
             new Vector3(_MapEnding.position.x, transform.position.y, transform.position.z) : transform.position;
     }
     
-    void MoveUp() {
-        if (!_IsOnLadder) return;
-        float vInput = Input.GetAxis("Vertical");
+    void MoveOnLadder() {
+        if (!IsOnLadder()) return;
+        //todo: add a snap to the gameobject
+        float vInput = Input.GetAxisRaw("Vertical");
         float moveValue = vInput * _ClimbingSpeed;
-        _Rigidbody2D.velocity = new Vector2(_Rigidbody2D.velocity.x, _Rigidbody2D.velocity.y + moveValue);
+        _Rigidbody2D.AddForce(new Vector2(0, moveValue - _Rigidbody2D.velocity.y), ForceMode.VelocityChange);
+        GoThroughPlateforms();
+    }
+
+    void GoThroughPlateforms() {
+        // Allow the player to go through a plateform from below
+        if (_Rigidbody2D.velocity.y > 0) Physics2D.IgnoreLayerCollision(gameObject.layer, 7, true); //maybe find to change the 7
+        else Physics2D.IgnoreLayerCollision(gameObject.layer, 7, false);
     }
 
     void LeftRightMove() {
@@ -60,19 +68,13 @@ public class Move : MonoBehaviour {
         _MapEnding = mapEnding;
     }
 
-    void IsOnLadder(bool b) {
-        _IsOnLadder = b;
+    bool IsOnLadder() {
+        RaycastHit2D rayCastHit2D =
+            Physics2D.BoxCast(_BoxCollider2D.bounds.center, _BoxCollider2D.bounds.size, 0f, Vector2.down, .2f, _LadderLayerMask);
+        return rayCastHit2D.collider != null;
     }
 
     public bool RigidbodyIsKinematic { set { _Rigidbody2D.isKinematic = value; } }
-
-    private void OnTriggerEnter2D(Collider2D collision) {
-        if ((_LadderLayerMask.value & (1 << collision.gameObject.layer)) > 0) IsOnLadder(true);
-    }
-
-    private void OnTriggerExit2D(Collider2D collision) {
-        if ((_LadderLayerMask.value & (1 << collision.gameObject.layer)) > 0) IsOnLadder(false);
-    }
 }
 
 /*switch (forceMode) {

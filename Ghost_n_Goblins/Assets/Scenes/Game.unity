@@ -1283,8 +1283,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5bebf0937bfb674c9438879215a32b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _MovementSpeed: 3
-  _ClimbingSpeed: 0
+  _MovementSpeed: 5
+  _ClimbingSpeed: 5
   _LadderLayerMask:
     serializedVersion: 2
     m_Bits: 512
@@ -1305,7 +1305,10 @@ MonoBehaviour:
   _FallingGravityScale: 30
   _GroundedLayerMask:
     serializedVersion: 2
-    m_Bits: 320
+    m_Bits: 960
+  _LadderLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &984442839
 GameObject:
   m_ObjectHideFlags: 0
@@ -1672,7 +1675,7 @@ GameObject:
   - component: {fileID: 1714994788}
   - component: {fileID: 1714994787}
   - component: {fileID: 1714994786}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Gfx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1751,7 +1754,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1758189830}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

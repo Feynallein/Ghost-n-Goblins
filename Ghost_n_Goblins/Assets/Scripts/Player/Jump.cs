@@ -14,10 +14,14 @@ public class Jump : MonoBehaviour {
     [Tooltip("Layer to every stuff that is ground related behaviour")]
     [SerializeField] LayerMask _GroundedLayerMask;
 
+    [Tooltip("Layer to detect stuff with ladder related behaviour")]
+    [SerializeField] LayerMask _LadderLayerMask;
+
     void Awake() {
         _Rigidbody2D = GetComponent<Rigidbody2D>();
         _BoxCollider2D = GetComponent<BoxCollider2D>();
     }
+
     private void Update() {
         if (!GameManager.Instance.IsPlaying) return;
 
@@ -27,8 +31,9 @@ public class Jump : MonoBehaviour {
         // Jumping if spacebar pressed!
         if (Input.GetKeyDown(KeyCode.Space)) JumpMethod();
 
-        // Changing gravity scale based on state (jumping or falling)
-        if (_Rigidbody2D.velocity.y >= 0) _Rigidbody2D.gravityScale = _GravityScale;
+        // Changing gravity scale based on state (jumping, falling or on ladder)
+        if (IsOnLadder() && transform.position.y > .1) _Rigidbody2D.gravityScale = 0; // If we're grounded but not with == 0 => we're on a ladder
+        else if (_Rigidbody2D.velocity.y >= 0) _Rigidbody2D.gravityScale = _GravityScale;
         else if (_Rigidbody2D.velocity.y < 0) _Rigidbody2D.gravityScale = _FallingGravityScale;
     }
 
@@ -42,6 +47,13 @@ public class Jump : MonoBehaviour {
     bool IsGrounded() {
         RaycastHit2D rayCastHit2D = 
             Physics2D.BoxCast(_BoxCollider2D.bounds.center, _BoxCollider2D.bounds.size, 0f, Vector2.down, .2f, _GroundedLayerMask);
+        return rayCastHit2D.collider != null;
+    }
+
+    // Try to optimize and encapsulate w/ move script (ie: abstract class "movements" which have common parmaters & methods)
+    bool IsOnLadder() {
+        RaycastHit2D rayCastHit2D =
+            Physics2D.BoxCast(_BoxCollider2D.bounds.center, _BoxCollider2D.bounds.size, 0f, Vector2.down, .2f, _LadderLayerMask);
         return rayCastHit2D.collider != null;
     }
 }
