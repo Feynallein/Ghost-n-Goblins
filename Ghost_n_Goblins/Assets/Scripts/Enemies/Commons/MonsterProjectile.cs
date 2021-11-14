@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using GhostsnGoblins;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class MonsterProjectile : MonoBehaviour {
@@ -27,4 +26,3 @@ public class MonsterProjectile : MonoBehaviour {
     public Enemy Enemy { set { _Parent = value; } }
     public float Speed { set { _ProjectileSpeed = value; } }
 }
-
