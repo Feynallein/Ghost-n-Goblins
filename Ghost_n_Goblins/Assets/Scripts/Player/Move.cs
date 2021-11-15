@@ -52,7 +52,7 @@ public class Move : MonoBehaviour {
 
     void GoThroughPlateforms() {
         // Allow the player to go through a plateform from below
-        if (_Rigidbody2D.velocity.y > 0 || (IsOnLadder() && Input.GetAxisRaw("Vertical") < 0)) Physics2D.IgnoreLayerCollision(gameObject.layer, 7, true); //maybe find to change the 7
+        if (_Rigidbody2D.velocity.y > 0) Physics2D.IgnoreLayerCollision(gameObject.layer, 7, true); //maybe find to change the 7
         else Physics2D.IgnoreLayerCollision(gameObject.layer, 7, false);
     }
 
