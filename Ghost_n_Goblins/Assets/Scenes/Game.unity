@@ -1775,9 +1775,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaba81624cdda9a46ac158e3c2769ff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _JumpHeight: 3
-  _GravityScale: 10
-  _FallingGravityScale: 30
+  _JumpHeight: 5
+  _GravityScale: 5
+  _FallingGravityScale: 15
   _GroundedLayerMask:
     serializedVersion: 2
     m_Bits: 1984
@@ -2052,7 +2052,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Ghost's Goblins
+  m_Text: Ghosts'n Goblins
 --- !u!222 &1440681820
 CanvasRenderer:
   m_ObjectHideFlags: 0
