@@ -4,9 +4,10 @@
     using System.Collections.Generic;
     using UnityEngine;
     using SDD.Events;
+    using UnityEngine.UI;
 
     public class MenuManager : Manager<MenuManager> {
-        #region Panels
+        #region Variables
         [Header("Panels")]
         [Tooltip("Panel displayed when in the main menu")]
         [SerializeField] GameObject _MainMenuPanel;
@@ -28,6 +29,7 @@
         protected override IEnumerator InitCoroutine() {
             yield break; // nothing
         }
+
         #endregion
 
         #region Monobehaviour lifecycle
@@ -38,6 +40,18 @@
         }
 
         private void Update() {
+            // Starting the game if in the main menu
+            if (Input.GetMouseButtonDown(0) || Input.GetAxisRaw("Start") == 1) PlayButtonHasBeenClicked();
+
+            // Restarting
+            //if (Input.GetAxisRaw("Start") == 1) return; // todo: restart from level 1
+
+            // Victory!!
+            if (Input.GetAxisRaw("Jump") == 1) MainMenuButtonHasBeenClicked();
+
+            // Returning to the main menu from other states
+            if (Input.GetAxisRaw("Select") == 1) MainMenuButtonHasBeenClicked();
+
             // What to do if escape is pressed
             if (Input.GetButtonDown("Cancel")) EscapeButtonHasBeenClicked();
         }

@@ -29,7 +29,7 @@ public class Jump : MonoBehaviour {
         if (_Rigidbody2D.velocity.y < .1 && _Rigidbody2D.velocity.y > -.1) _Rigidbody2D.velocity = new Vector2(_Rigidbody2D.velocity.x, 0);
 
         // Jumping if spacebar pressed!
-        if (Input.GetKeyDown(KeyCode.Space)) JumpMethod();
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown("joystick button 0")) JumpMethod(); // Axis doesn't work for whatever reason... (it stacks jump and you jump too high)
 
         // Changing gravity scale based on state (jumping, falling or on ladder)
         if (IsOnLadder() && transform.position.y > .1) _Rigidbody2D.gravityScale = 0; // If we're grounded but not with == 0 => we're on a ladder

@@ -88,6 +88,25 @@
         protected override void LevelReady(LevelReadyEvent e) {
             SetKey(e.eKey);
         }
+
+        protected override void GameMenu(GameMenuEvent e) {
+            // Removing useless scenes
+            Scene[] openScenes = GetOpenScenes();
+            foreach(Scene s in openScenes) {
+                if (s.name != "Game") SceneManager.UnloadSceneAsync(s);
+            }
+        }
         #endregion
+
+        Scene[] GetOpenScenes() {
+            int numberOfScenes = SceneManager.sceneCount;
+            Scene[] openScenes = new Scene[numberOfScenes];
+
+            for (int i = 0; i < numberOfScenes; i++) {
+                openScenes[i] = SceneManager.GetSceneAt(i);
+            }
+
+            return openScenes;
+        }
     }
 }

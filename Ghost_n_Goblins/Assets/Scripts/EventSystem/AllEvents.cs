@@ -60,8 +60,10 @@
     #region MenuManager Events
     public class EscapeButtonClickedEvent : SDD.Events.Event {
     }
+
     public class PlayButtonClickedEvent : SDD.Events.Event {
     }
+
     public class ResumeButtonClickedEvent : SDD.Events.Event {
     }
 
