@@ -136,6 +136,18 @@
             SetHudActive(true);
         }
 
+        protected override void GameVictory(GameVictoryEvent e) {
+            SetHudActive(false);
+        }
+
+        protected override void GameOver(GameOverEvent e) {
+            SetHudActive(false);
+        }
+
+        protected override void GameMenu(GameMenuEvent e) {
+            SetHudActive(false);
+        }
+
         protected override void GameStatisticsChanged(GameStatisticsChangedEvent e) {
             SetScoreAndTimerUI(e.eScore, e.eTimer);
             SetLivesUI(e.eNLives);

@@ -15,6 +15,14 @@
         #region Game State
         private GameState _GameState;
         public bool IsPlaying { get { return _GameState == GameState.gamePlay; } }
+
+        public bool IsInMainMenu { get { return _GameState == GameState.gameMenu; } }
+
+        public bool IsPausing { get { return _GameState == GameState.gamePause; } }
+
+        public bool IsVictory { get { return _GameState == GameState.gameVictory; } }
+
+        public bool IsGameOver { get { return _GameState == GameState.gameOver; } }
         #endregion
 
         #region Lives
@@ -119,7 +127,7 @@
             if (IsPlaying) {
                 _Timer = Mathf.Max(0, _Timer - Time.deltaTime);
                 EventManager.Instance.Raise(new GameStatisticsChangedEvent() { eScore = _Score, eTimer = _Timer, eNLives = _NLives, eBestScore = BestScore });
-                if (_Timer == 0) EventManager.Instance.Raise(new GameOverEvent());
+                if (_Timer == 0 || _NLives == 0) Over();
             }
         }
         #endregion
@@ -142,11 +150,11 @@
 
         #region Callbacks to Events issued by MenuManager
         private void MainMenuButtonClicked(MainMenuButtonClickedEvent e) {
-            Menu();
+            if(IsPausing || IsVictory || IsGameOver) Menu();
         }
 
         private void PlayButtonClicked(PlayButtonClickedEvent e) {
-            InitializeLevel();
+            if(IsInMainMenu) InitializeLevel();
         }
 
         private void ResumeButtonClicked(ResumeButtonClickedEvent e) {
@@ -155,7 +163,8 @@
 
         private void EscapeButtonClicked(EscapeButtonClickedEvent e) {
             if (IsPlaying) Pause();
-            //else if menu quit?
+            else if (IsPausing) EventManager.Instance.Raise(new ResumeButtonClickedEvent());
+            else if (IsInMainMenu) EventManager.Instance.Raise(new QuitButtonClickedEvent());
         }
 
         private void QuitButtonClicked(QuitButtonClickedEvent e) {
@@ -165,6 +174,10 @@
         protected override void LevelReady(LevelReadyEvent e) {
             InitNewGame(); // essentiellement pour que les statistiques du jeu soient mise à jour en HUD
             Play();
+        }
+
+        protected override void GameVictory(GameVictoryEvent e) {
+            _GameState = GameState.gameVictory;
         }
         #endregion
 
@@ -180,12 +193,12 @@
             InitNewGame();
             SetTimeScale(1);
             _GameState = GameState.gamePlay;
-
             //if (MusicLoopsManager.Instance) MusicLoopsManager.Instance.PlayMusic(Constants.GAMEPLAY_MUSIC); => joue la musique de jeu
             EventManager.Instance.Raise(new GamePlayEvent());
         }
 
         private void InitializeLevel() { //on devra rajouter un parametre ici qui prend en compte la scene
+            _GameState = GameState.initializingLevel;
             string name = "Scenes/Level1"; // qui sera la variable name
             EventManager.Instance.Raise(new GameInitializeLevelEvent() { eSceneName = name }); // a remplacer par la scene choisi avec la surcouche de selection de niveau
         }
