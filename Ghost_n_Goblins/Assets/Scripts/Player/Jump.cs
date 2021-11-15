@@ -36,7 +36,7 @@ public class Jump : MonoBehaviour {
         else if (_Rigidbody2D.velocity.y >= 0) _Rigidbody2D.gravityScale = _GravityScale;
         else if (_Rigidbody2D.velocity.y < 0) _Rigidbody2D.gravityScale = _FallingGravityScale;
     }
-
+    
     void JumpMethod() {
         if (!IsGrounded()) return;
         float gravity = Physics2D.gravity.y * _Rigidbody2D.gravityScale;

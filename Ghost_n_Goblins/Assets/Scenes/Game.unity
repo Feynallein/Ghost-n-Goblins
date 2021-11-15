@@ -1760,6 +1760,9 @@ MonoBehaviour:
   _LadderLayerMask:
     serializedVersion: 2
     m_Bits: 512
+  _MovingPlateformLayerMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!114 &952122323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1777,7 +1780,7 @@ MonoBehaviour:
   _FallingGravityScale: 30
   _GroundedLayerMask:
     serializedVersion: 2
-    m_Bits: 960
+    m_Bits: 1984
   _LadderLayerMask:
     serializedVersion: 2
     m_Bits: 512

@@ -15,9 +15,13 @@ public class Move : MonoBehaviour {
     Rigidbody2D _Rigidbody2D;
     BoxCollider2D _BoxCollider2D;
 
+    GameObject _CurrentMovingPlateform;
+
     [Header("Layer masks")]
     [Tooltip("Layer to detect stuff with ladder related behaviour")]
     [SerializeField] LayerMask _LadderLayerMask;
+    [Tooltip("Layer to detect stuff with moving platforms related behaviour")]
+    [SerializeField] LayerMask _MovingPlateformLayerMask;
 
     void Awake() {
         _Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -72,6 +76,14 @@ public class Move : MonoBehaviour {
         RaycastHit2D rayCastHit2D =
             Physics2D.BoxCast(_BoxCollider2D.bounds.center, _BoxCollider2D.bounds.size, 0f, Vector2.down, .2f, _LadderLayerMask);
         return rayCastHit2D.collider != null;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if ((_MovingPlateformLayerMask & (1 << collision.gameObject.layer)) > 0) transform.SetParent(collision.gameObject.transform);
+    }
+
+    private void OnCollisionExit2D(Collision2D collision) {
+        if ((_MovingPlateformLayerMask & (1 << collision.gameObject.layer)) > 0) collision.gameObject.transform.DetachChildren();
     }
 
     public bool RigidbodyIsKinematic { set { _Rigidbody2D.isKinematic = value; } }
