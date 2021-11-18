@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using EventsManager;
 
-public abstract class Enemy : SimpleGameStateObserver, IScore {
+public abstract class Enemy : MonoBehaviour, IScore {
     #region Variables
     [Header("Stats")]
     [Tooltip("Score value when killed")]
@@ -20,20 +20,20 @@ public abstract class Enemy : SimpleGameStateObserver, IScore {
 
 
     //Todo tooltips
-    [SerializeField] float _AttackRange;
-    [SerializeField] float _DetectionRange;
-
-    //The player
-    protected Transform _Player;
+    [SerializeField] protected float _AttackRange;
+    [SerializeField] protected float _DetectionRange;
 
     List<GameObject> _OnScreenProjectiles = new List<GameObject>();
 
-    Rigidbody2D _Rigidbody2D;
+    protected Rigidbody2D _Rigidbody2D;
+
+    protected float yOffset = 1.5f; //TMP: 1.5 = (gfx) scale.y /2 
     #endregion
 
+    //TMP: faudra p'tet changer tt les prefabs pour que la facing dir soit forward, faudra adapter le code dans ce cas la (et comme ca pour face le player on peut faire transform.LookAt();
+
     #region Enemy Implementation
-    protected override void Awake() {
-        base.Awake();
+    private void Awake() {
         _Rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
@@ -45,6 +45,7 @@ public abstract class Enemy : SimpleGameStateObserver, IScore {
     }
     #endregion
 
+    //TODO: every attack/movement methods that are used only once -> put in the specific class, those who are called multiple times stay here
     #region Enemy methods
     public void TakeDamage(int damage) {
         // Taking damage from the player
@@ -64,29 +65,30 @@ public abstract class Enemy : SimpleGameStateObserver, IScore {
         //todo : loot a pot
     }
 
-    void SetPlayer(Transform player) {
-        _Player = player;
-    }
-
     protected void ShootAtPlayer(GameObject projectile, float projectileSpeed, Transform projectileSpawnPoint, int numberOfProjectileOnScreen) {
         if (_OnScreenProjectiles.Count > numberOfProjectileOnScreen) return;
         GameObject newProjectile = Instantiate(projectile, projectileSpawnPoint);
         Physics2D.IgnoreCollision(newProjectile.GetComponent<Collider2D>(), GetComponent<Collider2D>());
-        newProjectile.transform.LookAt(_Player);
+        newProjectile.transform.LookAt(LevelInterface.Instance.Player);
         newProjectile.GetComponent<MonsterProjectile>().Speed = projectileSpeed;
         newProjectile.GetComponent<MonsterProjectile>().Enemy = this;
         _OnScreenProjectiles.Add(newProjectile);
     }
 
-    protected void JumpTowardPlayer(float jumpHeight, float forward) {
-        JumpForward(jumpHeight, Layers.Instance.IsFacingPlayer(transform, _AttackRange) ? forward : -forward);
+    protected void Jump(float jumpHeight, float forward) {
+        JumpForward(jumpHeight, forward);
     }
 
     void JumpForward(float jumpHeight, float forward) {
+        //todo: change horizontal input
         float gravity = Physics2D.gravity.y * _Rigidbody2D.gravityScale;
         float verticalJumpForce = Mathf.Sqrt(-2 * gravity * jumpHeight);
-        float horizontalJumpForce = Mathf.Sqrt(-2 * gravity * forward);
+        float horizontalJumpForce = Mathf.Sqrt(-2 * gravity * (forward/2));
         _Rigidbody2D.AddForce(new Vector2(horizontalJumpForce, verticalJumpForce), ForceMode2D.Impulse);
+    }
+
+    protected void ChargeTowardPlayer(float speed) {
+        _Rigidbody2D.AddForce(transform.forward * speed, ForceMode2D.Impulse);
     }
 
     public void ProjectileDestroyed(GameObject projectile) {
@@ -95,17 +97,10 @@ public abstract class Enemy : SimpleGameStateObserver, IScore {
     #endregion
 
     #region Event's Callbacks
-    protected override void LevelReady(LevelReadyEvent e) {
-        SetPlayer(e.ePlayer);
-    }
 
-    bool DetectInRange(float radius) {
-        Collider2D collider2D = Physics2D.OverlapCircle(transform.position, radius, Layers.Instance.PlayerLayerMask);
+    bool DetectInRange(float radius) { //TMP: to move in layers class
+        Collider2D collider2D = Physics2D.OverlapCircle(transform.position + Vector3.up * yOffset, radius/2, Layers.Instance.PlayerLayerMask);
         return collider2D != null;
-    }
-
-    private void OnDrawGizmos() {
-        Gizmos.DrawWireSphere(transform.position, _AttackRange);
     }
     #endregion
 

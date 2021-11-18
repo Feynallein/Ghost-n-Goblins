@@ -1757,12 +1757,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _MovementSpeed: 5
   _ClimbingSpeed: 5
-  _LadderLayerMask:
-    serializedVersion: 2
-    m_Bits: 512
-  _MovingPlateformLayerMask:
-    serializedVersion: 2
-    m_Bits: 1024
 --- !u!114 &952122323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1778,12 +1772,6 @@ MonoBehaviour:
   _JumpHeight: 5
   _GravityScale: 5
   _FallingGravityScale: 15
-  _GroundedLayerMask:
-    serializedVersion: 2
-    m_Bits: 1984
-  _LadderLayerMask:
-    serializedVersion: 2
-    m_Bits: 512
 --- !u!1 &984442839
 GameObject:
   m_ObjectHideFlags: 0
