@@ -19534,7 +19534,7 @@ Tilemap:
       - {fileID: 21300000, guid: 4f022c88555b6124fa7a175f48bfb2df, type: 3}
       - {fileID: 21300000, guid: df62a18642b021a44a67c34a20008caa, type: 3}
       - {fileID: 21300000, guid: 1a32dbef38a49374794e3a85782e3028, type: 3}
-      m_AnimationSpeed: 15
+      m_AnimationSpeed: 15.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 173, y: -2, z: 0}
@@ -20230,14 +20230,11 @@ MonoBehaviour:
   _Health: 1
   _IsLooter: 1
   _ProjectileSpawnPoint: {fileID: 0}
-  _PlayerLayerMask:
-    serializedVersion: 2
-    m_Bits: 8
   _AttackRange: 5
   _DetectionRange: 0
   _JumpHeight: 8
   _JumpCooldown: 0.5
-  _HorizontalJumpOffset: 0
+  _HorizontalJumpOffset: 1
 --- !u!1 &1665403119
 GameObject:
   m_ObjectHideFlags: 0

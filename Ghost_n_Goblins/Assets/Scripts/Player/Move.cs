@@ -38,7 +38,7 @@ public class Move : MonoBehaviour {
     }
     
     void MoveOnLadder() {
-        if (!Utils.IsOnLadder(_BoxCollider2D)) return;
+        if (!Layers.Instance.IsOnLadder(_BoxCollider2D)) return;
         //todo: add a snap to the gameobject
         float vInput = Input.GetAxisRaw("Vertical");
         float moveValue = vInput * _ClimbingSpeed;
@@ -48,7 +48,7 @@ public class Move : MonoBehaviour {
 
     void GoThroughPlateforms() {
         // Allow the player to go through a plateform from below
-        if (_Rigidbody2D.velocity.y > 0 || (Utils.IsOnLadder(_BoxCollider2D) && Input.GetAxisRaw("Vertical") < 0)) Physics2D.IgnoreLayerCollision(gameObject.layer, 7, true); //maybe find to change the 7
+        if (_Rigidbody2D.velocity.y > 0 || (Layers.Instance.IsOnLadder(_BoxCollider2D) && Input.GetAxisRaw("Vertical") < 0)) Physics2D.IgnoreLayerCollision(gameObject.layer, 7, true); //maybe find to change the 7
         else Physics2D.IgnoreLayerCollision(gameObject.layer, 7, false);
     }
 
@@ -64,13 +64,12 @@ public class Move : MonoBehaviour {
         _MapEnding = mapEnding;
     }
 
-    //todo: encapsulation
     private void OnCollisionEnter2D(Collision2D collision) {
-        if ((Layers.Instance.MovingPlateformLayerMask & (1 << collision.gameObject.layer)) > 0) transform.SetParent(collision.gameObject.transform);
+        if (Layers.Instance.CheckIfCollidedLayerIsMovingPlateform(collision.gameObject.layer)) transform.SetParent(collision.gameObject.transform);
     }
 
     private void OnCollisionExit2D(Collision2D collision) {
-        if ((Layers.Instance.MovingPlateformLayerMask & (1 << collision.gameObject.layer)) > 0) collision.gameObject.transform.DetachChildren();
+        if(Layers.Instance.CheckIfCollidedLayerIsMovingPlateform(collision.gameObject.layer)) collision.gameObject.transform.DetachChildren();
     }
 
     public bool RigidbodyIsKinematic { set { _Rigidbody2D.isKinematic = value; } }

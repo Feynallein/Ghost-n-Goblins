@@ -26,13 +26,13 @@ public class Jump : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown("joystick button 0")) JumpMethod(); // Axis doesn't work for whatever reason... (it stacks jump and you jump too high)
 
         // Changing gravity scale based on state (jumping, falling or on ladder)
-        if (Utils.IsOnLadder(_BoxCollider2D) && transform.position.y > .1) _Rigidbody2D.gravityScale = 0; // If we're grounded but not with == 0 => we're on a ladder
+        if (Layers.Instance.IsOnLadder(_BoxCollider2D) && transform.position.y > .1) _Rigidbody2D.gravityScale = 0; // If we're grounded but not with == 0 => we're on a ladder
         else if (_Rigidbody2D.velocity.y >= 0) _Rigidbody2D.gravityScale = _GravityScale;
         else if (_Rigidbody2D.velocity.y < 0) _Rigidbody2D.gravityScale = _FallingGravityScale;
     }
     
     void JumpMethod() {
-        if (!Utils.IsGrounded(_BoxCollider2D)) return;
+        if (!Layers.Instance.IsGrounded(_BoxCollider2D)) return;
         float gravity = Physics2D.gravity.y * _Rigidbody2D.gravityScale;
         float jumpForce = Mathf.Sqrt(-2 * gravity * _JumpHeight);
         _Rigidbody2D.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);

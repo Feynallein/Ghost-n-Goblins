@@ -78,14 +78,15 @@ public abstract class Enemy : SimpleGameStateObserver, IScore {
         _OnScreenProjectiles.Add(newProjectile);
     }
 
-    protected void JumpForward(float jumpHeight, float forward) {
-        float gravity = Physics2D.gravity.y * _Rigidbody2D.gravityScale;
-        float jumpForce = Mathf.Sqrt(-2 * gravity * jumpHeight);
-        _Rigidbody2D.AddForce(new Vector2(forward, jumpForce), ForceMode2D.Impulse);
+    protected void JumpTowardPlayer(float jumpHeight, float forward) {
+        JumpForward(jumpHeight, Layers.Instance.IsFacingPlayer(transform, _AttackRange) ? forward : -forward);
     }
-    
-    protected void MeleeAttack() {
-        //start the animation
+
+    void JumpForward(float jumpHeight, float forward) {
+        float gravity = Physics2D.gravity.y * _Rigidbody2D.gravityScale;
+        float verticalJumpForce = Mathf.Sqrt(-2 * gravity * jumpHeight);
+        float horizontalJumpForce = Mathf.Sqrt(-2 * gravity * forward);
+        _Rigidbody2D.AddForce(new Vector2(horizontalJumpForce, verticalJumpForce), ForceMode2D.Impulse);
     }
 
     public void ProjectileDestroyed(GameObject projectile) {

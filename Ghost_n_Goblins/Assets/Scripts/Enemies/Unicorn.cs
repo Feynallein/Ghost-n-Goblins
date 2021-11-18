@@ -17,14 +17,14 @@ public class Unicorn : Enemy {
 
     protected override void Attack() {
         Debug.Log(_ElapsedTime);
-        if(_ElapsedTime > _JumpCooldown && Utils.IsGrounded(_BoxCollider2D)) {
-            JumpForward(_JumpHeight, _HorizontalJumpOffset);
-            //jumpbackward is also viable if too far away from spawn point
+        if(_ElapsedTime > _JumpCooldown && Layers.Instance.IsGrounded(_BoxCollider2D)) {
+            JumpTowardPlayer(_JumpHeight, _HorizontalJumpOffset);
+            //jump opposite of player is also viable if too far away from spawn point
             _ElapsedTime = 0;
         }
         _ElapsedTime += Time.deltaTime;
 
-        //they also can charge & throw projectiles but not for now
+        //they also can do a big horizontal jump & throw projectiles but not for now
     }
 
     protected override void Move() {
