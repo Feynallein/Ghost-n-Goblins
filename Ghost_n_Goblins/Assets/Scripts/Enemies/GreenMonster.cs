@@ -10,6 +10,7 @@ public class GreenMonster : Enemy {
     [SerializeField] int _ProjectileOnScreen;
 
     protected override void Attack() {
+        //todo: face player
         // Type of attack
         ShootAtPlayer(_EyeBall, _ProjectileSpeed, _ProjectileSpawnPoint, _ProjectileOnScreen);
     }
