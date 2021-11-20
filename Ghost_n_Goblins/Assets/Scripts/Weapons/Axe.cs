@@ -4,29 +4,59 @@ using UnityEngine;
 
 public class Axe : Projectile
 {
-	private float Vx;
-	private float Vy;
-	private float gravity = 10f;
+	private float speed = 10f;
+	public GameObject _TargetPoint;
+
+	private float axePositionX;
+	private float targetPositionX;
+
+	private float dist;
+	private float nextX;
+	private float baseY;
+	private float height;
+
 	protected override void Move()
 	{
 		//_Rigidbody2D.AddForce(transform.right * _Speed, ForceMode2D.Impulse);
 	}
+
+	private void Awake()
+	{
+		_TargetPoint = GameObject.Find("TargetPoint");
+	}
+
 	private void Start()
 	{
-		AxeThrowing();
+		
 	}
-	private void AxeThrowing()
+
+	private void Update()
 	{
-		Vy = 4f;
-		Vx = _Rigidbody2D.velocity.x * 2;
+		ThrowingAxe();
+	}
+	private void ThrowingAxe()
+	{
+		axePositionX = transform.position.x;
+		targetPositionX = _TargetPoint.transform.position.x;
+
+		dist = targetPositionX - axePositionX;
+		nextX = Mathf.MoveTowards(transform.position.x, targetPositionX, speed * Time.deltaTime);
+		baseY = Mathf.Lerp(transform.position.y, _TargetPoint.transform.position.y, (nextX - axePositionX) / dist);
+		height = 2 * (nextX - axePositionX) * (nextX - targetPositionX) / (-0.25f * dist * dist);
+
+		Vector3 movePosition = new Vector3(nextX, baseY + height, transform.position.z);
+
+		transform.position = movePosition;
 	}
 
 	private void FixedUpdate()
 	{
-		_Rigidbody2D.velocity = new Vector2(Vx, Vy);
-		Vx -= (gravity * Time.deltaTime) / 10;
-		Vy -= (gravity * Time.deltaTime);
+		//_Rigidbody2D.velocity = new Vector2(Vx, Vy);
+		//Vx -= (gravity * Time.deltaTime) / 10;
+		//Vy -= (gravity * Time.deltaTime);
 
-		transform.Rotate(Vector3.back * 15);
+		//transform.Rotate(Vector3.back * 15);
 	}
+
+	
 }
