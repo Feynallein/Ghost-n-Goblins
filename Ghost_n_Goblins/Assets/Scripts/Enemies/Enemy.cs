@@ -46,6 +46,10 @@ public abstract class Enemy : MonoBehaviour, IScore {
     #endregion
 
     //TODO: every attack/movement methods that are used only once -> put in the specific class, those who are called multiple times stay here
+
+    //Todo: each enemy has to face the player after detecting it + each enemy has to go THROUGH the player (ie no collisions but still damages)
+    // (enemies' collider = trigger?)
+
     #region Enemy methods
     public void TakeDamage(int damage) {
         // Taking damage from the player
@@ -85,6 +89,12 @@ public abstract class Enemy : MonoBehaviour, IScore {
         float verticalJumpForce = Mathf.Sqrt(-2 * gravity * jumpHeight);
         float horizontalJumpForce = Mathf.Sqrt(-2 * gravity * (forward/2));
         _Rigidbody2D.AddForce(new Vector2(horizontalJumpForce, verticalJumpForce), ForceMode2D.Impulse);
+    }
+
+    protected void RunTowardPlayer(float speed) {
+        _Rigidbody2D.AddForce(new Vector2(speed - _Rigidbody2D.velocity.x, 0), ForceMode.VelocityChange);
+        _Rigidbody2D.angularVelocity = 0;
+        _Rigidbody2D.MoveRotation(0);
     }
 
     protected void ChargeTowardPlayer(float speed) {
