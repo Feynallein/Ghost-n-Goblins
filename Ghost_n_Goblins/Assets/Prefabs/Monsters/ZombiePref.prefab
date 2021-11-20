@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 146564396700905592}
   - component: {fileID: 8353141342864394787}
   - component: {fileID: 5353951532296675323}
+  - component: {fileID: 1225684512597182977}
   m_Layer: 0
   m_Name: ZombiePref
   m_TagString: Untagged
@@ -161,3 +162,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1225684512597182977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2733832121171824996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac8a275fce8386b4d9ec710036c5c313, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Score: 200
+  _Health: 1
+  _IsLooter: 0
+  _ProjectileSpawnPoint: {fileID: 0}
+  _AttackRange: 0
+  _DetectionRange: 10
+  _MovementSpeed: 3
