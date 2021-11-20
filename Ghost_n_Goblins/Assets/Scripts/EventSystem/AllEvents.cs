@@ -1,4 +1,4 @@
-﻿namespace GhostsnGoblins {
+﻿namespace EventsManager {
     using System.Collections;
     using System.Collections.Generic;
     using UnityEngine;
@@ -31,6 +31,8 @@
         public GameObject eBackground;
         public Transform eMapBeginning;
         public Transform eMapEnding;
+        public Transform eKey;
+        public Transform ePlayer;
     }
 
     public class BossKilledEvent : SDD.Events.Event {
@@ -46,6 +48,10 @@
         public float eTimer { get; set; }
     }
 
+    public class SceneLoadedEvent : SDD.Events.Event {
+        public Transform ePlayer;
+    }
+
     public class WeaponSwapEvent : SDD.Events.Event {
         public Weapon eWeapon;
     }
@@ -54,8 +60,10 @@
     #region MenuManager Events
     public class EscapeButtonClickedEvent : SDD.Events.Event {
     }
+
     public class PlayButtonClickedEvent : SDD.Events.Event {
     }
+
     public class ResumeButtonClickedEvent : SDD.Events.Event {
     }
 
