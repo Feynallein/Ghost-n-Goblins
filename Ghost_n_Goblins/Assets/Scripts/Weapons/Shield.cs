@@ -11,7 +11,7 @@ public class Shield : Projectile
 
 	private void Update()
 	{
-		Destroy(gameObject, 0.3f);
+		DestroyProjectile(0.3f);
 	}
 
 	// TO DO
