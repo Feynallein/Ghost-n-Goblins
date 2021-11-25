@@ -95,7 +95,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Damage: 1
   _Speed: 10
-  _RotateSpeed: 10
+  _RotateSpeed: 360
+  _ThrowSpeed: 15
 --- !u!1 &8641651731413628735
 GameObject:
   m_ObjectHideFlags: 0
