@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7589083256893817868}
   - component: {fileID: 2708933307716320853}
   - component: {fileID: 8797676960052670920}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Gfx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: -3116815901249170966}
   - component: {fileID: 6742898567999945938}
   - component: {fileID: 7903939941696586298}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: AxePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,3 +176,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Damage: 0
   _Speed: 10
+  _TargetPoint: {fileID: 0}

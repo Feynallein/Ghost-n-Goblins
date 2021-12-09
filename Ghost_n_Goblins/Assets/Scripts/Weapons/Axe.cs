@@ -4,59 +4,28 @@ using UnityEngine;
 
 public class Axe : Projectile
 {
-	private float speed = 10f;
-	public GameObject _TargetPoint;
-
-	private float axePositionX;
-	private float targetPositionX;
-
-	private float dist;
-	private float nextX;
-	private float baseY;
-	private float height;
+	[SerializeField]
+	private float _ThrowSpeed = 10f;
+	[SerializeField]
+	private float _RotateSpeed = 10f;	
 
 	protected override void Move()
 	{
-		//_Rigidbody2D.AddForce(transform.right * _Speed, ForceMode2D.Impulse);
-	}
-
-	private void Awake()
-	{
-		_TargetPoint = GameObject.Find("TargetPoint");
+		_Rigidbody2D.AddForce(transform.right * _Speed, ForceMode2D.Impulse);
 	}
 
 	private void Start()
 	{
-		
+		_Rigidbody2D.AddRelativeForce(transform.right * _ThrowSpeed, ForceMode2D.Impulse);
 	}
 
 	private void Update()
 	{
-		ThrowingAxe();
+		transform.Rotate(new Vector3(0, 0, -_RotateSpeed * Time.deltaTime));
 	}
-	private void ThrowingAxe()
+	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		axePositionX = transform.position.x;
-		targetPositionX = _TargetPoint.transform.position.x;
-
-		dist = targetPositionX - axePositionX;
-		nextX = Mathf.MoveTowards(transform.position.x, targetPositionX, speed * Time.deltaTime);
-		baseY = Mathf.Lerp(transform.position.y, _TargetPoint.transform.position.y, (nextX - axePositionX) / dist);
-		height = 2 * (nextX - axePositionX) * (nextX - targetPositionX) / (-0.25f * dist * dist);
-
-		Vector3 movePosition = new Vector3(nextX, baseY + height, transform.position.z);
-
-		transform.position = movePosition;
+		if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+			Destroy(gameObject);
 	}
-
-	private void FixedUpdate()
-	{
-		//_Rigidbody2D.velocity = new Vector2(Vx, Vy);
-		//Vx -= (gravity * Time.deltaTime) / 10;
-		//Vy -= (gravity * Time.deltaTime);
-
-		//transform.Rotate(Vector3.back * 15);
-	}
-
-	
 }

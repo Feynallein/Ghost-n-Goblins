@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2977868354958543230}
   - component: {fileID: 3425786564514515626}
   - component: {fileID: -8364740938962130270}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LancePref
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 7048995655606700195}
   - component: {fileID: 7048995655606700193}
   - component: {fileID: 7048995655606700194}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Gfx
   m_TagString: Untagged
   m_Icon: {fileID: 0}

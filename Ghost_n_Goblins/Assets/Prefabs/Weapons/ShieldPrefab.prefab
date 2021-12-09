@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6086837100697382429}
   - component: {fileID: 1061083346535024105}
   - component: {fileID: 7103518319794429138}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ShieldPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 1008950024341186984}
   - component: {fileID: 4963219177675573584}
   - component: {fileID: 5661746785392414894}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Gfx
   m_TagString: Untagged
   m_Icon: {fileID: 0}

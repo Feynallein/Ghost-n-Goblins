@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6395249997950338566}
   - component: {fileID: -3303284512137699568}
   - component: {fileID: -7195224837195873783}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: TorchPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 8982008181722721669}
   - component: {fileID: 5406953222616326688}
   - component: {fileID: 7849118871324972778}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Torch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 8875532355437279955}
   - component: {fileID: 8875532355437279953}
   - component: {fileID: 8875532355437279952}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FireDark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5006,7 +5006,7 @@ GameObject:
   - component: {fileID: 8875532355544863475}
   - component: {fileID: 8875532355544863473}
   - component: {fileID: 8875532355544863472}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9822,7 +9822,7 @@ GameObject:
   - component: {fileID: 8875532355977462537}
   - component: {fileID: 8875532355977462536}
   - component: {fileID: 8875532355977462539}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Magic fire pro orange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14642,7 +14642,7 @@ GameObject:
   - component: {fileID: 8875532356616787041}
   - component: {fileID: 8875532356616787047}
   - component: {fileID: 8875532356616787046}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19458,7 +19458,7 @@ GameObject:
   - component: {fileID: 8875532357135743497}
   - component: {fileID: 8875532357135743503}
   - component: {fileID: 8875532357135743502}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
