@@ -10,15 +10,13 @@ public class Unicorn : Enemy {
     float _ElapsedTime;
     BoxCollider2D _BoxCollider2D;
 
-    protected override void Awake() {
-        base.Awake();
+    private void Awake() {
         _BoxCollider2D = GetComponent<BoxCollider2D>();
     }
 
     protected override void Attack() {
-        Debug.Log(_ElapsedTime);
-        if(_ElapsedTime > _JumpCooldown && Layers.Instance.IsGrounded(_BoxCollider2D)) {
-            JumpTowardPlayer(_JumpHeight, _HorizontalJumpOffset);
+        if (_ElapsedTime > _JumpCooldown && Layers.Instance.IsGrounded(_BoxCollider2D)) {
+            Jump(_JumpHeight, _HorizontalJumpOffset);
             //jump opposite of player is also viable if too far away from spawn point
             _ElapsedTime = 0;
         }
@@ -28,10 +26,12 @@ public class Unicorn : Enemy {
     }
 
     protected override void Move() {
-        
+        _Rigidbody2D.angularVelocity = 0;
+        _Rigidbody2D.MoveRotation(0);
     }
 
     protected override void PlayerDetected() {
-        //todo: face player
+        //todo: ca marche pas...
+        //if (!Layers.Instance.IsFacingPlayer(transform, _DetectionRange, yOffset/2)) transform.Rotate(Vector3.up, 180, Space.Self);
     }
 }

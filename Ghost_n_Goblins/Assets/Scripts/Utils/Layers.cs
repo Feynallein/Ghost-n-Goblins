@@ -28,13 +28,13 @@ public class Layers : MonoBehaviour {
     }
 
     // Return true if monster is facing player within the range
-    public bool IsFacingPlayer(Transform monster, float range) {
-        return RayCastToLayer(monster.position, monster.forward, range, PlayerLayerMask);
+    public bool IsFacingPlayer(Transform monster, float range, float yOffset = 0f) {
+        return RayCastToLayer(monster.position + Vector3.up * yOffset, monster.right + Vector3.up * yOffset, range, PlayerLayerMask);
     }
 
     // Return true if the raycast (length = range) hit an object of the targeted layer
     public bool RayCastToLayer(Vector3 position, Vector3 direction, float range, LayerMask targetedLayer) {
-        return Physics2D.Raycast(position,direction, range, targetedLayer).collider != null;
+        return Physics2D.Raycast(position, direction, range, targetedLayer).collider != null;
     }
 
     // Return truc if collider collided with something on the layer mask

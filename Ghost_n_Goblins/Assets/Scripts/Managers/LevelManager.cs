@@ -15,6 +15,9 @@
 
         [SerializeField] Transform _Player;
 
+        // Boss of this level
+        GameObject _Boss;
+
         // The key in the level
         Transform _Key;
 
@@ -29,7 +32,7 @@
 
         //TEMPORARY
         private void Update() {
-            if (Input.GetKeyDown(KeyCode.V)) EventManager.Instance.Raise(new BossKilledEvent());
+            if (GameManager.Instance.IsPlaying && _Boss == null) EventManager.Instance.Raise(new BossKilledEvent());
         }
         // END OF TEMPORARY
         #endregion
@@ -47,8 +50,9 @@
         #endregion
 
         #region LevelManager Methods
-        void SetKey(Transform key) {
+        void SetKeyAndBoss(Transform key, GameObject boss) {
             _Key = key; // Set the key
+            _Boss = boss;
         }
 
         IEnumerator LoadingAsyncScene(string name) {
@@ -86,7 +90,7 @@
         }
 
         protected override void LevelReady(LevelReadyEvent e) {
-            SetKey(e.eKey);
+            SetKeyAndBoss(e.eKey, e.eBoss);
         }
 
         protected override void GameMenu(GameMenuEvent e) {
