@@ -15,8 +15,12 @@ public class Player : SimpleGameStateObserver {
     [SerializeField] List<Behaviour> _Behaviours;
     Move MovingScript;
     Shoot ShootingScript;
+    bool _isInvicible;
+    [SerializeField] int _InvicibilityDuration;
+    [SerializeField] int _BlinkDuration;
 
     int currentWeapon = 0; //temporary
+    MeshRenderer _MeshRenderer;
 
     #region Player Implementation
 
@@ -30,6 +34,7 @@ public class Player : SimpleGameStateObserver {
         base.Awake();
         MovingScript = GetComponent<Move>();
         ShootingScript = GetComponent<Shoot>();
+        _MeshRenderer = GetComponentInChildren<MeshRenderer>();
     }
     #endregion
 
@@ -41,8 +46,19 @@ public class Player : SimpleGameStateObserver {
     }
 
     public void TakeDamage() {
+        if(!_isInvicible) Debug.Log("damage");
         //todo: perdre l'armure puis perdre un coeur & recommencer au debut du niveau
-        Debug.Log("damage");
+        _isInvicible = true;
+        StartCoroutine(DamageCoroutine());
+    }
+
+    IEnumerator DamageCoroutine() {
+        float duration = 0;
+        while(duration < _InvicibilityDuration) {
+            _MeshRenderer.enabled = !_MeshRenderer.enabled;
+            duration += _BlinkDuration;
+            yield return new WaitForSeconds(_BlinkDuration);
+        }
     }
 
     void SetRigidbodyKinematic(bool isKinematic) {

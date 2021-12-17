@@ -23,7 +23,7 @@ public abstract class Enemy : MonoBehaviour, IScore {
     [SerializeField] protected float _AttackRange;
     [SerializeField] protected float _DetectionRange;
 
-    List<GameObject> _OnScreenProjectiles = new List<GameObject>();
+    protected List<GameObject> _OnScreenProjectiles = new List<GameObject>();
 
     protected Rigidbody2D _Rigidbody2D;
 
@@ -69,16 +69,6 @@ public abstract class Enemy : MonoBehaviour, IScore {
         //todo : loot a pot
     }
 
-    protected void ShootAtPlayer(GameObject projectile, float projectileSpeed, Transform projectileSpawnPoint, int numberOfProjectileOnScreen) {
-        if (_OnScreenProjectiles.Count > numberOfProjectileOnScreen) return;
-        GameObject newProjectile = Instantiate(projectile, projectileSpawnPoint);
-        Physics2D.IgnoreCollision(newProjectile.GetComponent<Collider2D>(), GetComponent<Collider2D>());
-        newProjectile.transform.LookAt(LevelInterface.Instance.Player);
-        newProjectile.GetComponent<MonsterProjectile>().Speed = projectileSpeed;
-        newProjectile.GetComponent<MonsterProjectile>().Enemy = this;
-        _OnScreenProjectiles.Add(newProjectile);
-    }
-
     protected void Jump(float jumpHeight, float forward) {
         JumpForward(jumpHeight, forward);
     }
@@ -91,13 +81,13 @@ public abstract class Enemy : MonoBehaviour, IScore {
         _Rigidbody2D.AddForce(new Vector2(horizontalJumpForce, verticalJumpForce), ForceMode2D.Impulse);
     }
 
-    protected void RunTowardPlayer(float speed) {
+    protected void GoForward(float speed) {
         _Rigidbody2D.AddForce(new Vector2(speed - _Rigidbody2D.velocity.x, 0), ForceMode.VelocityChange);
         _Rigidbody2D.angularVelocity = 0;
         _Rigidbody2D.MoveRotation(0);
     }
 
-    protected void ChargeTowardPlayer(float speed) {
+    protected void ChargeForward(float speed) {
         _Rigidbody2D.AddForce(transform.forward * speed, ForceMode2D.Impulse);
     }
 
