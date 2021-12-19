@@ -93,10 +93,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6765ba4d2fcb6d64d91cc0223d42cc09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Damage: 1
+  _Damage: 10
   _Speed: 10
   _RotateSpeed: 360
   _ThrowSpeed: 15
+  _AshesPrefab: {fileID: 0}
 --- !u!1 &8641651731413628735
 GameObject:
   m_ObjectHideFlags: 0
