@@ -29,6 +29,7 @@ using EventsManager;
         Player = e.ePlayer;
         PlayerGfx = e.ePlayer.GetComponentsInChildren<MeshRenderer>()[0].transform;
         EventManager.Instance.Raise(new LevelReadyEvent() {
+            isNewGame = e.isNewGame,
             eBackground = _Background,
             eMapBeginning = _MapBeginning,
             eMapEnding = _MapEnding,

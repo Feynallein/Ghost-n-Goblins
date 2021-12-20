@@ -12,21 +12,37 @@ public class WoodyPig : Enemy {
     [SerializeField] float _ShootCooldown;
     [SerializeField] int _BelowOffset;
 
-    float waitingTime;
+    float _WaitingTime;
+    bool _WentForward = false;
+
+    private void Start() {
+        _WaitingTime = _ShootCooldown - 1;
+    }
+
 
     protected override void Attack() {
-        if (waitingTime > _ShootCooldown) {
+        if (_WaitingTime > _ShootCooldown) {
             Shoot(_Spear, _SpearSpeed, _ProjectileSpawnPoint, _SpearsOnScreen, PlayerBelow());
-            waitingTime = 0;
+            _WaitingTime = 0;
         }
-        else waitingTime += Time.deltaTime;
+        else _WaitingTime += Time.deltaTime;
     }
 
     protected override void Move() {
     }
 
     protected override void PlayerDetected() {
-        GoForward(_Speed);
+        if (_WentForward) return;
+
+        if (!FacingPlayer()) {
+            FacePlayer();
+            _Rigidbody2D.velocity = Vector2.zero;
+            GoForward(_Speed);
+        }
+
+        if (_Rigidbody2D.velocity != Vector2.zero) GoForward(_Speed);
+        StartCoroutine(RemoveAngularMovementCoroutine());
+        _WentForward = true;
     }
 
     bool PlayerBelow() {
@@ -36,10 +52,11 @@ public class WoodyPig : Enemy {
     void Shoot(GameObject projectile, float projectileSpeed, Transform projectileSpawnPoint, int numberOfProjectileOnScreen, bool downward) {
         if (_OnScreenProjectiles.Count > numberOfProjectileOnScreen) return;
         GameObject newProjectile = Instantiate(_Spear, projectileSpawnPoint);
-        if (downward) newProjectile.transform.LookAt(Vector3.down); //todo: correct
-        Physics2D.IgnoreCollision(newProjectile.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        Physics2D.IgnoreCollision(newProjectile.GetComponent<Collider2D>(), GetComponentsInChildren<Collider2D>()[0]);
+        if (downward) newProjectile.transform.Rotate(new Vector3(90, 0, 0));
         newProjectile.GetComponent<MonsterProjectile>().Speed = projectileSpeed;
         newProjectile.GetComponent<MonsterProjectile>().Enemy = this;
+        newProjectile.GetComponent<MonsterProjectile>().Shoot();
         _OnScreenProjectiles.Add(newProjectile);
     }
 }

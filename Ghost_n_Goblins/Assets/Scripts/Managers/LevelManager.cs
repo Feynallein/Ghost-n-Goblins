@@ -55,11 +55,12 @@
             _Boss = boss;
         }
 
-        IEnumerator LoadingAsyncScene(string name) {
+        IEnumerator LoadingAsyncScene(string name, bool isNewGame) {
             // Loading asynchronously a scene
             AsyncOperation load = SceneManager.LoadSceneAsync(name, LoadSceneMode.Additive);
             while (!load.isDone) yield return null; // loading screen would be here
             EventManager.Instance.Raise(new SceneLoadedEvent() {
+                isNewGame = isNewGame,
                 ePlayer = _Player,
             });
         }
@@ -82,7 +83,7 @@
 
         #region Event's Callbacks
         protected override void GameInitializeLevel(GameInitializeLevelEvent e) {
-            StartCoroutine(LoadingAsyncScene(e.eSceneName));
+            StartCoroutine(LoadingAsyncScene(e.eSceneName, e.isNewGame));
         }
 
         void BossKilled(BossKilledEvent e) {

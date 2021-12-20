@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2537679407544359426}
   - component: {fileID: 5393568074929248842}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   - component: {fileID: 6043168936695826566}
   - component: {fileID: 8812020695701212521}
   - component: {fileID: 5078654048653810306}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: facing dir
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 7654794051894608200}
   - component: {fileID: 2745224563633195641}
   - component: {fileID: 1213362209339510803}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 6722007198009142524}
   - component: {fileID: 989185141431602592}
   - component: {fileID: 1621957817910826986}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GoosePref
   m_TagString: Untagged
   m_Icon: {fileID: 0}

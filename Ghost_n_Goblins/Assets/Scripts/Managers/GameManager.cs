@@ -154,7 +154,7 @@
         }
 
         private void PlayButtonClicked(PlayButtonClickedEvent e) {
-            if(IsInMainMenu) InitializeLevel();
+            if(IsInMainMenu) InitializeLevel(true);
         }
 
         private void ResumeButtonClicked(ResumeButtonClickedEvent e) {
@@ -172,12 +172,18 @@
         }
 
         protected override void LevelReady(LevelReadyEvent e) {
-            InitNewGame(); // essentiellement pour que les statistiques du jeu soient mise à jour en HUD
+            if(e.isNewGame) InitNewGame(); // essentiellement pour que les statistiques du jeu soient mise à jour en HUD
             Play();
         }
 
         protected override void GameVictory(GameVictoryEvent e) {
             _GameState = GameState.gameVictory;
+        }
+
+        protected override void PlayerDied(DieEvent e) {
+            _NLives--;
+            //if(SfxManager.Instance) SfxManager.Instance.PlaySfx2D(Constants.GAMEOVER_SFX); => joue le SFX de mort
+            InitializeLevel(false);
         }
         #endregion
 
@@ -190,17 +196,16 @@
         }
 
         private void Play() {
-            InitNewGame();
             SetTimeScale(1);
             _GameState = GameState.gamePlay;
             //if (MusicLoopsManager.Instance) MusicLoopsManager.Instance.PlayMusic(Constants.GAMEPLAY_MUSIC); => joue la musique de jeu
             EventManager.Instance.Raise(new GamePlayEvent());
         }
 
-        private void InitializeLevel() { //on devra rajouter un parametre ici qui prend en compte la scene
+        private void InitializeLevel(bool isNewGame) { //on devra rajouter un parametre ici qui prend en compte la scene
             _GameState = GameState.initializingLevel;
             string name = "Scenes/Level1"; // qui sera la variable name
-            EventManager.Instance.Raise(new GameInitializeLevelEvent() { eSceneName = name }); // a remplacer par la scene choisi avec la surcouche de selection de niveau
+            EventManager.Instance.Raise(new GameInitializeLevelEvent() { eSceneName = name, isNewGame = isNewGame}); // a remplacer par la scene choisi avec la surcouche de selection de niveau
         }
 
         private void Pause() {

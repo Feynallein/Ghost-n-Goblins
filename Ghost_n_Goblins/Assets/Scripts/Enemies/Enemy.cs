@@ -30,7 +30,7 @@ public abstract class Enemy : MonoBehaviour, IScore {
     #region Enemy Implementation
     private void Awake() {
         _Rigidbody2D = GetComponent<Rigidbody2D>();
-        //Physics2D.IgnoreCollision(LevelInterface.Instance.Player.GetComponent<Collider2D>(), GetComponentsInChildren<Collider2D>()[0]);
+        Physics2D.IgnoreLayerCollision(3, 11);
     }
 
     private void Update() {
@@ -43,7 +43,7 @@ public abstract class Enemy : MonoBehaviour, IScore {
 
     #region Enemy methods
     protected bool FacingPlayer() {
-        return (LevelInterface.Instance.PlayerGfx.position.x > transform.position.x && transform.forward == Vector3.right) || (LevelInterface.Instance.PlayerGfx.position.x < transform.position.x && transform.forward == Vector3.left);
+        return (LevelInterface.Instance.PlayerGfx.position.x > transform.position.x && (int) transform.forward.x == 1) || (LevelInterface.Instance.PlayerGfx.position.x < transform.position.x && (int) transform.forward.x == -1);
     }
 
     protected void FacePlayer() {
@@ -75,9 +75,17 @@ public abstract class Enemy : MonoBehaviour, IScore {
     }
 
     protected void GoForward(float speed) {
-        _Rigidbody2D.AddForce(new Vector2(speed - _Rigidbody2D.velocity.x, 0) * transform.forward, ForceMode.VelocityChange);
+        _Rigidbody2D.AddForce(transform.forward * speed, ForceMode.Impulse);
         _Rigidbody2D.angularVelocity = 0;
         _Rigidbody2D.MoveRotation(0);
+    }
+
+    protected IEnumerator RemoveAngularMovementCoroutine() {
+        while (true) {
+            _Rigidbody2D.angularVelocity = 0;
+            _Rigidbody2D.MoveRotation(0);
+            yield return null;
+        }
     }
 
     protected void ChargeForward(float speed) {

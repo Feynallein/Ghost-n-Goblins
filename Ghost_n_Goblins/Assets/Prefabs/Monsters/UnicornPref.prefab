@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6277469059515421627}
   - component: {fileID: 6277469059515421625}
   - component: {fileID: 6277469059515421626}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: 'temp: facing dir'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 6277469059670358047}
   - component: {fileID: 6277469059670358045}
   - component: {fileID: 6277469059670358046}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Gfx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 6277469059931202748}
   - component: {fileID: 6277469059931202749}
   - component: {fileID: 6277469059931202738}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: UnicornPref
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,7 +207,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0031738281, y: 1.5113723}

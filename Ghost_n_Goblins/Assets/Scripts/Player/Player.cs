@@ -28,6 +28,7 @@ public class Player : SimpleGameStateObserver {
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.G)) EventManager.Instance.Raise(new WeaponSwapEvent() { eWeapon = (Weapon)(++currentWeapon % 5) });
+        if (Input.GetKeyDown(KeyCode.L)) EventManager.Instance.Raise(new DieEvent());
     }
 
     protected override void Awake() {
@@ -55,11 +56,11 @@ public class Player : SimpleGameStateObserver {
     }
 
     void LoseArmor() {
-        //todo: just lose armor
+        //todo: just lose armor: component remove (todo when the playerh as armour)
     }
 
     void Die() {
-        //todo: lose a life and restart current level
+        EventManager.Instance.Raise(new DieEvent());
     }
 
     IEnumerator DamageCoroutine() {
