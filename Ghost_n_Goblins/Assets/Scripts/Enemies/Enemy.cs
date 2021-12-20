@@ -23,8 +23,6 @@ public abstract class Enemy : MonoBehaviour, IScore {
     protected List<GameObject> _OnScreenProjectiles = new List<GameObject>();
 
     protected Rigidbody2D _Rigidbody2D;
-
-    protected float yOffset = 1.5f; //TMP: 1.5 = (gfx) scale.y /2  
     #endregion
 
     #region Enemy Implementation
