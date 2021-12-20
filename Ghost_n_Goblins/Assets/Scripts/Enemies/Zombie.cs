@@ -13,7 +13,6 @@ public class Zombie : Enemy {
 
     protected override void PlayerDetected() {
         GoForward(_MovementSpeed);
-        //todo les faire sauter un obstacle: raycast pour detecter un obstacle + saut
-        //todo: les faire se retourner face au player
+        //todo: les faire sauter un obstacle: raycast pour detecter un obstacle + saut
     }
 }

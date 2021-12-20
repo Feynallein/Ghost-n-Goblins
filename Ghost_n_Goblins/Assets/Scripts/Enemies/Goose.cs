@@ -13,9 +13,14 @@ public class Goose : Enemy {
     protected override void Move() { // No Idle move
     }
 
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (Layers.Instance.IsDestroyedByTerrain(collision.collider) || Layers.Instance.IsPlayer(collision.collider)) Die();
+    }
+
     protected override void PlayerDetected() {
         if (_Charged) return;
-        transform.LookAt(LevelInterface.Instance.Player);
+        if (!FacingPlayer()) FacePlayer();
+        transform.LookAt(LevelInterface.Instance.PlayerGfx);
         ChargeForward(_MovementSpeed);
         _Charged = true;
         Destroy(gameObject, _DestroyTimer);

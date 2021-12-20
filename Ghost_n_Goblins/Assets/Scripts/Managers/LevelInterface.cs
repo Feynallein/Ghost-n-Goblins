@@ -12,6 +12,7 @@ using EventsManager;
     [SerializeField] private Transform _Key;
     [SerializeField] private GameObject _Boss;
 
+    public Transform PlayerGfx;
     public Transform Player;
 
     public override void SubscribeEvents() {
@@ -26,6 +27,7 @@ using EventsManager;
 
     void SceneLoaded(SceneLoadedEvent e) {
         Player = e.ePlayer;
+        PlayerGfx = e.ePlayer.GetComponentsInChildren<MeshRenderer>()[0].transform;
         EventManager.Instance.Raise(new LevelReadyEvent() {
             eBackground = _Background,
             eMapBeginning = _MapBeginning,

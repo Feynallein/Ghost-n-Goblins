@@ -10,8 +10,7 @@ public class GreenMonster : Enemy {
     [SerializeField] int _EyeBallsOnScreen;
 
     protected override void Attack() {
-        //todo: face player
-        // Type of attack
+        if (!FacingPlayer()) FacePlayer();
         ShootAtPlayer(_EyeBall, _EyeBallSpeed, _ProjectileSpawnPoint, _EyeBallsOnScreen);
     }
 
@@ -24,10 +23,11 @@ public class GreenMonster : Enemy {
     void ShootAtPlayer(GameObject projectile, float projectileSpeed, Transform projectileSpawnPoint, int numberOfProjectileOnScreen) {
         if (_OnScreenProjectiles.Count > numberOfProjectileOnScreen) return;
         GameObject newProjectile = Instantiate(projectile, projectileSpawnPoint);
-        Physics2D.IgnoreCollision(newProjectile.GetComponent<Collider2D>(), GetComponent<Collider2D>());
-        newProjectile.transform.LookAt(LevelInterface.Instance.Player);
+        Physics2D.IgnoreCollision(newProjectile.GetComponent<Collider2D>(), GetComponentsInChildren<Collider2D>()[0]);
+        newProjectile.transform.LookAt(LevelInterface.Instance.PlayerGfx);
         newProjectile.GetComponent<MonsterProjectile>().Speed = projectileSpeed;
         newProjectile.GetComponent<MonsterProjectile>().Enemy = this;
+        newProjectile.GetComponent<MonsterProjectile>().Shoot();
         _OnScreenProjectiles.Add(newProjectile);
     }
 }

@@ -76,7 +76,8 @@ namespace LinearInterpolation3D {
 
             if (nbPoints < 2 || tMin == tMax) return;
 
-            for (float t = tMin; t < tMax; t += step) {
+            for (float j = 0; j <= nbPoints - 1; j++) {
+                float t = tMin + step * j;
                 currentPoint = function(t);
                 _TotalLength += currentPoint.Distance(previousPoint);
                 flooredTotalLength = Mathf.FloorToInt(_TotalLength);
@@ -95,11 +96,10 @@ namespace LinearInterpolation3D {
                 _Points.Add(new LogPoint(_TotalLength, firstLogPoint.point));
                 flooredTotalLength = Mathf.FloorToInt(_TotalLength);
 
-                for (int i = _Indexes.Count; i < flooredTotalLength; i++) {
+                for (int i = _Indexes.Count; i <= flooredTotalLength; i++) {
                     _Indexes.Add(Mathf.Max(_Points.Count - 1, 0));
                 }
             }
-            Debug.Log("ok " + _TotalLength);
         }
 
         /// <summary> 
