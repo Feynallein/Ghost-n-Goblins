@@ -1,34 +1,47 @@
 Using pre-set license
 Built from '2020.3/staging' branch; Version is '2020.3.20f1 (41c4e627c95f) revision 4310246'; Using compiler version '192528614'; Build Type 'Release'
+<<<<<<< HEAD
 OS: 'Windows 10 Home; OS build 19044.1348; Version 2009; 64bit' Language: 'en' Physical Memory: 16191 MB
+=======
+OS: 'Windows 10 Education; OS build 19042.1415; Version 2009; 64bit' Language: 'fr' Physical Memory: 8135 MB
+>>>>>>> Bryan
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
 COMMAND LINE ARGUMENTS:
-C:\Program Files\Unity\Hub\Editor\2020.3.20f1\Editor\Unity.exe
+C:\Program Files\Unity\2020.3.20f1\Editor\Unity.exe
 -adb2
 -batchMode
 -noUpm
 -name
 AssetImportWorker0
 -projectPath
-D:/Documents/Unity/Ghost-n-Goblins/Ghost_n_Goblins
+C:/Users/BlueShark/Documents/Ghost-n-Goblins/Ghost_n_Goblins
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
+<<<<<<< HEAD
 53905
 Successfully changed project path to: D:/Documents/Unity/Ghost-n-Goblins/Ghost_n_Goblins
 D:/Documents/Unity/Ghost-n-Goblins/Ghost_n_Goblins
 Using Asset Import Pipeline V2.
 Refreshing native plugins compatible for Editor in 43.12 ms, found 3 plugins.
+=======
+63036
+Successfully changed project path to: C:/Users/BlueShark/Documents/Ghost-n-Goblins/Ghost_n_Goblins
+C:/Users/BlueShark/Documents/Ghost-n-Goblins/Ghost_n_Goblins
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 81.49 ms, found 3 plugins.
+>>>>>>> Bryan
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.20f1 (41c4e627c95f)
-[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.20f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path D:/Documents/Unity/Ghost-n-Goblins/Ghost_n_Goblins/Assets
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/2020.3.20f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/BlueShark/Documents/Ghost-n-Goblins/Ghost_n_Goblins/Assets
 GfxDevice: creating device client; threaded=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
-    Renderer: NVIDIA GeForce GTX 1050 Ti (ID=0x1c82)
+    Renderer: NVIDIA GeForce GTX 1060 3GB (ID=0x1c02)
     Vendor:   
+<<<<<<< HEAD
     VRAM:     4018 MB
     Driver:   30.0.14.9676
 Initialize mono
@@ -48,11 +61,33 @@ Mono: successfully reloaded assembly
 Domain Reload Profiling:
 	ReloadAssembly (1049ms)
 		BeginReloadAssembly (63ms)
+=======
+    VRAM:     2988 MB
+    Driver:   30.0.14.9649
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/2020.3.20f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/2020.3.20f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/2020.3.20f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56776
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/2020.3.20f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.004434 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 65.44 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.949 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2950ms)
+		BeginReloadAssembly (88ms)
+>>>>>>> Bryan
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
+<<<<<<< HEAD
 		EndReloadAssembly (449ms)
 			LoadAssemblies (61ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
@@ -67,12 +102,29 @@ Domain Reload Profiling:
 				BeforeProcessingInitializeOnLoad (17ms)
 				ProcessInitializeOnLoadAttributes (82ms)
 				ProcessInitializeOnLoadMethodAttributes (29ms)
+=======
+		EndReloadAssembly (521ms)
+			LoadAssemblies (83ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (185ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (34ms)
+			SetupLoadedEditorAssemblies (210ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (66ms)
+				BeforeProcessingInitializeOnLoad (19ms)
+				ProcessInitializeOnLoadAttributes (87ms)
+				ProcessInitializeOnLoadMethodAttributes (33ms)
+>>>>>>> Bryan
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
+<<<<<<< HEAD
 Registered in 0.002155 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
@@ -83,10 +135,23 @@ Mono: successfully reloaded assembly
 Domain Reload Profiling:
 	ReloadAssembly (1129ms)
 		BeginReloadAssembly (161ms)
+=======
+Registered in 0.008047 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 65.17 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.216 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2217ms)
+		BeginReloadAssembly (181ms)
+>>>>>>> Bryan
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (4ms)
+			DisableScriptedObjects (5ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
+<<<<<<< HEAD
 			CreateAndSetChildDomain (18ms)
 		EndReloadAssembly (898ms)
 			LoadAssemblies (102ms)
@@ -103,6 +168,24 @@ Domain Reload Profiling:
 				ProcessInitializeOnLoadAttributes (225ms)
 				ProcessInitializeOnLoadMethodAttributes (13ms)
 				AfterProcessingInitializeOnLoad (7ms)
+=======
+			CreateAndSetChildDomain (21ms)
+		EndReloadAssembly (1951ms)
+			LoadAssemblies (145ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (430ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (88ms)
+			SetupLoadedEditorAssemblies (1157ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (65ms)
+				BeforeProcessingInitializeOnLoad (130ms)
+				ProcessInitializeOnLoadAttributes (927ms)
+				ProcessInitializeOnLoadMethodAttributes (17ms)
+				AfterProcessingInitializeOnLoad (14ms)
+>>>>>>> Bryan
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (8ms)
@@ -110,6 +193,7 @@ Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
+<<<<<<< HEAD
 Refreshing native plugins compatible for Editor in 0.40 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2018 Unused Serialized files (Serialized files now loaded: 0)
@@ -118,6 +202,16 @@ System memory in use after: 92.2 MB.
 
 Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 2459.
 Total: 2.834500 ms (FindLiveObjects: 0.159300 ms CreateObjectMapping: 0.063800 ms MarkObjects: 2.551300 ms  DeleteObjects: 0.059100 ms)
+=======
+Refreshing native plugins compatible for Editor in 0.81 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3565 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 140.6 MB.
+System memory in use after: 140.8 MB.
+
+Unloading 27 unused Assets to reduce memory usage. Loaded Objects now: 4006.
+Total: 5.005400 ms (FindLiveObjects: 0.539000 ms CreateObjectMapping: 0.516100 ms MarkObjects: 3.842000 ms  DeleteObjects: 0.107600 ms)
+>>>>>>> Bryan
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -131,9 +225,16 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
+<<<<<<< HEAD
   path: Assets/Prefabs/Monsters/FlyingKnightPref.prefab
   artifactKey: Guid(7aefa56e45f632342bebe6c934513196) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Prefabs/Monsters/FlyingKnightPref.prefab using Guid(7aefa56e45f632342bebe6c934513196) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a82c962b0c65d8776a2914aa6731d79b') in 0.113945 seconds 
   Import took 0.143308 seconds .
+=======
+  path: Assets/Prefabs/Weapons/DaggerPrefab.prefab
+  artifactKey: Guid(afe4490281b9a3b42a9b6f0bd548fb49) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Weapons/DaggerPrefab.prefab using Guid(afe4490281b9a3b42a9b6f0bd548fb49) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'adfd9ddfc4a3cf6d64e4acd3c524083c') in 0.137052 seconds 
+  Import took 0.143817 seconds .
+>>>>>>> Bryan
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file

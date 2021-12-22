@@ -24,4 +24,4 @@ public class Shoot : MonoBehaviour {
     void ShootWeapon() {
         Instantiate(weaponTable[(int)_CurrentWeapon].weaponPrefab, spawnPoint.position, spawnPoint.rotation);
     }
-}
+} 
