@@ -15,7 +15,7 @@ public class GreenMonster : Enemy {
         ShootAtPlayer(_EyeBall, _ProjectileSpeed, _ProjectileSpawnPoint, _ProjectileOnScreen);
     }
 
-    protected override void Move() { // Empty: this monster doesn't move
+    protected override void Move() { // Empty: this monster doesn't have idle move
     }
 
     protected override void PlayerDetected() { // Empty: this monster has no reaction near player

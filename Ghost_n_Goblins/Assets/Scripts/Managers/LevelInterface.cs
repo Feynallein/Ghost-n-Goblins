@@ -4,12 +4,15 @@ using UnityEngine;
 using SDD.Events;
 using EventsManager;
 
-    public class LevelInterface : SimpleGameStateObserver {
-    public GameObject _Background;
-    public Transform _MapBeginning;
-    public Transform _MapEnding;
-    public Transform _PlayerSpawnPoint;
-    public Transform _Key;
+    public class LevelInterface : SingletonGameStateObserver<LevelInterface> {
+    [SerializeField] private GameObject _Background;
+    [SerializeField] private Transform _MapBeginning;
+    [SerializeField] private Transform _MapEnding;
+    [SerializeField] private Transform _PlayerSpawnPoint;
+    [SerializeField] private Transform _Key;
+    [SerializeField] private GameObject _Boss;
+
+    public Transform Player;
 
     public override void SubscribeEvents() {
         base.SubscribeEvents();
@@ -22,6 +25,7 @@ using EventsManager;
     }
 
     void SceneLoaded(SceneLoadedEvent e) {
+        Player = e.ePlayer;
         EventManager.Instance.Raise(new LevelReadyEvent() {
             eBackground = _Background,
             eMapBeginning = _MapBeginning,
@@ -29,6 +33,7 @@ using EventsManager;
             ePlayerSpawnPoint = _PlayerSpawnPoint,
             eKey = _Key,
             ePlayer = e.ePlayer,
+            eBoss = _Boss,
         });
     }
 }

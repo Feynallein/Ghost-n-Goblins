@@ -33,6 +33,7 @@
         public Transform eMapEnding;
         public Transform eKey;
         public Transform ePlayer;
+        public GameObject eBoss;
     }
 
     public class BossKilledEvent : SDD.Events.Event {

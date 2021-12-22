@@ -30,9 +30,4 @@ public abstract class Projectile : MonoBehaviour {
 			Destroy(gameObject);
 		}
     }
-
-	protected void DestroyProjectile(float timerBeforeDestroy = 0f)
-	{
-		Destroy(gameObject, timerBeforeDestroy);
-	}
 }
