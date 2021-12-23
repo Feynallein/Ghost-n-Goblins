@@ -5,8 +5,6 @@ using UnityEngine;
 public class Zombie : Enemy {
     [SerializeField] float _MovementSpeed;
 
-    bool _WentForward = false;
-
     private void Start() {
         Physics2D.IgnoreLayerCollision(11, 8);
     }
@@ -18,15 +16,8 @@ public class Zombie : Enemy {
     }
 
     protected override void PlayerDetected() {
-        if (!FacingPlayer()) {
-            FacePlayer();
-            _Rigidbody2D.velocity = Vector2.zero;
-            GoForward(_MovementSpeed);
-        }
+        if (!FacingPlayer()) FacePlayer();
 
-        if (_WentForward) return;
-        if(_Rigidbody2D.velocity != Vector2.zero) GoForward(_MovementSpeed);
-        StartCoroutine(RemoveAngularMovementCoroutine());
-        _WentForward = true;
+        GoForward(_MovementSpeed);
     }
 }

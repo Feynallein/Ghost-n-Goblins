@@ -271,7 +271,7 @@ MonoBehaviour:
   _ProjectileSpawnPoint: {fileID: 0}
   _AttackRange: 10
   _DetectionRange: 15
-  _JumpHeight: 8
+  _JumpHeight: 6
   _JumpCooldown: 0.5
   _HorizontalJumpOffset: 1
   _MovementSpeed: 2
@@ -290,7 +290,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1

@@ -13,7 +13,7 @@ public class WoodyPig : Enemy {
     [SerializeField] int _BelowOffset;
 
     float _WaitingTime;
-    bool _WentForward = false;
+    bool _FacedPlayer = false;
 
     private void Start() {
         _WaitingTime = _ShootCooldown - 1;
@@ -32,17 +32,10 @@ public class WoodyPig : Enemy {
     }
 
     protected override void PlayerDetected() {
-        if (_WentForward) return;
+        if (!FacingPlayer() && !_FacedPlayer) FacePlayer();
 
-        if (!FacingPlayer()) {
-            FacePlayer();
-            _Rigidbody2D.velocity = Vector2.zero;
-            GoForward(_Speed);
-        }
-
-        if (_Rigidbody2D.velocity != Vector2.zero) GoForward(_Speed);
-        StartCoroutine(RemoveAngularMovementCoroutine());
-        _WentForward = true;
+        GoForward(_Speed);
+        _FacedPlayer = true;
     }
 
     bool PlayerBelow() {

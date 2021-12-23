@@ -25,4 +25,8 @@ public class Goose : Enemy {
         _Charged = true;
         Destroy(gameObject, _DestroyTimer);
     }
+
+    protected void ChargeForward(float speed) {
+        _Rigidbody2D.AddForce(transform.forward * speed, ForceMode2D.Impulse);
+    }
 }

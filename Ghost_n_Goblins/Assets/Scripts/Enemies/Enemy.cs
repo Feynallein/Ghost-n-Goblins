@@ -32,7 +32,6 @@ public abstract class Enemy : MonoBehaviour, IScore {
     }
 
     private void Update() {
-        // Update the monster : move, do action if player detected, attack if in range
         Move();
         if (DetectInRange(_DetectionRange)) PlayerDetected(); 
         if (DetectInRange(_AttackRange)) Attack();
@@ -49,45 +48,19 @@ public abstract class Enemy : MonoBehaviour, IScore {
     }
 
     public void TakeDamage(int damage) {
-        // Taking damage from the player
         _Health -= damage;
         if (_Health <= 0) Die();
     }
 
-    // What to do when dying
     protected void Die() {
         //todo: Start death animation
         Destroy(gameObject);
     }
 
-    protected void Jump(float jumpHeight, float forward) {
-        JumpForward(jumpHeight, forward);
-    }
-
-    void JumpForward(float jumpHeight, float forward) {
-        //todo: change horizontal input
-        float gravity = Physics2D.gravity.y * _Rigidbody2D.gravityScale;
-        float verticalJumpForce = Mathf.Sqrt(-2 * gravity * jumpHeight);
-        float horizontalJumpForce = Mathf.Sqrt(-2 * gravity * (forward/2));
-        _Rigidbody2D.AddForce(new Vector2(horizontalJumpForce, verticalJumpForce), ForceMode2D.Impulse);
-    }
-
     protected void GoForward(float speed) {
-        _Rigidbody2D.AddForce(transform.forward * speed, ForceMode.Impulse);
+        _Rigidbody2D.AddForce(transform.forward * speed, ForceMode.Force);
         _Rigidbody2D.angularVelocity = 0;
         _Rigidbody2D.MoveRotation(0);
-    }
-
-    protected IEnumerator RemoveAngularMovementCoroutine() {
-        while (true) {
-            _Rigidbody2D.angularVelocity = 0;
-            _Rigidbody2D.MoveRotation(0);
-            yield return null;
-        }
-    }
-
-    protected void ChargeForward(float speed) {
-        _Rigidbody2D.AddForce(transform.forward * speed, ForceMode2D.Impulse);
     }
 
     public void ProjectileDestroyed(GameObject projectile) {
@@ -95,7 +68,7 @@ public abstract class Enemy : MonoBehaviour, IScore {
     }
 
     bool DetectInRange(float radius) { //todo: move in layers class
-        Collider2D collider2D = Physics2D.OverlapCircle(transform.position /*+ Vector3.up * yOffset*/, radius / 2, Layers.Instance.PlayerLayerMask);
+        Collider2D collider2D = Physics2D.OverlapCircle(transform.position, radius / 2, Layers.Instance.PlayerLayerMask);
         return collider2D != null;
     }
     #endregion

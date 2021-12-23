@@ -6,40 +6,35 @@ public class Unicorn : Enemy {
     [Header("Monster specifications")]
     [SerializeField] float _JumpHeight;
     [SerializeField] float _JumpCooldown;
-    [SerializeField] float _HorizontalJumpOffset;
     [SerializeField] float _MovementSpeed;
     float _ElapsedTime;
     BoxCollider2D _BoxCollider2D;
-    bool _WentForward = false;
 
     private void Start() {
         _BoxCollider2D = GetComponentsInChildren<BoxCollider2D>()[0];
+        Physics2D.IgnoreLayerCollision(11, 8);
     }
 
-    protected override void Attack() {/*
+    protected override void Attack() {
         if (_ElapsedTime > _JumpCooldown && Layers.Instance.IsGrounded(_BoxCollider2D)) {
-            Jump(_JumpHeight, _HorizontalJumpOffset);
-            //jump opposite of player is also viable if too far away from spawn point
+            Jump(_JumpHeight);
             _ElapsedTime = 0;
         }
-        _ElapsedTime += Time.deltaTime;*/
+        _ElapsedTime += Time.deltaTime;
+    }
 
-        //they also can do a big horizontal jump & throw projectiles but not for now
+    protected void Jump(float jumpHeight) {
+        float gravity = Physics2D.gravity.y * _Rigidbody2D.gravityScale;
+        float jumpForce = Mathf.Sqrt(-2 * gravity * _JumpHeight);
+        _Rigidbody2D.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
     }
 
     protected override void Move() {
     }
 
     protected override void PlayerDetected() {
-        if (!FacingPlayer()) {
-            FacePlayer();
-            _Rigidbody2D.velocity = Vector2.zero;
-            GoForward(_MovementSpeed);
-        }
+        if (!FacingPlayer()) FacePlayer();
         
-        if (_WentForward) return;
-        if (_Rigidbody2D.velocity != Vector2.zero) GoForward(_MovementSpeed);
-        StartCoroutine(RemoveAngularMovementCoroutine());
-        _WentForward = true;
+        GoForward(_MovementSpeed);
     }
 }
