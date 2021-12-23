@@ -24,9 +24,11 @@
     }
     public class GameInitializeLevelEvent : SDD.Events.Event {
         public string eSceneName;
+        public bool isNewGame;
     }
 
     public class LevelReadyEvent : SDD.Events.Event {
+        public bool isNewGame;
         public Transform ePlayerSpawnPoint;
         public GameObject eBackground;
         public Transform eMapBeginning;
@@ -51,10 +53,14 @@
 
     public class SceneLoadedEvent : SDD.Events.Event {
         public Transform ePlayer;
+        public bool isNewGame;
     }
 
     public class WeaponSwapEvent : SDD.Events.Event {
         public Weapon eWeapon;
+    }
+
+    public class DieEvent : SDD.Events.Event {
     }
     #endregion
 

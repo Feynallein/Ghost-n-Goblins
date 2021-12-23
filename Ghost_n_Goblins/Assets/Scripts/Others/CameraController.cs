@@ -88,7 +88,8 @@ public class CameraController : SimpleGameStateObserver {
     }
 
     protected override void LevelReady(LevelReadyEvent e) {
-        SetUpMapPointsAndBackground(e.eMapBeginning, e.eMapEnding, e.eBackground);
+        if (e.isNewGame) SetUpMapPointsAndBackground(e.eMapBeginning, e.eMapEnding, e.eBackground);
+        else ResetCamera();
     }
     #endregion
 }

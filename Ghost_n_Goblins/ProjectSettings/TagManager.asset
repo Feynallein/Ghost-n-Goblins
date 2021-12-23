@@ -17,7 +17,11 @@ TagManager:
   - Obstacles
   - Ladder
   - Moving Plateform
+<<<<<<< HEAD
   - Weapon
+=======
+  - Enemies
+>>>>>>> Martin
   - 
   - 
   - 
