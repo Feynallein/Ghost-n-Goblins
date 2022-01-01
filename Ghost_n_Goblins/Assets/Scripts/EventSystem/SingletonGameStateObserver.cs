@@ -16,6 +16,7 @@
             EventManager.Instance.AddListener<GameStatisticsChangedEvent>(GameStatisticsChanged);
             EventManager.Instance.AddListener<GameInitializeLevelEvent>(GameInitializeLevel);
             EventManager.Instance.AddListener<LevelReadyEvent>(LevelReady);
+            EventManager.Instance.AddListener<DieEvent>(PlayerDied);
         }
 
         public virtual void UnsubscribeEvents() {
@@ -28,7 +29,7 @@
             EventManager.Instance.RemoveListener<GameStatisticsChangedEvent>(GameStatisticsChanged);
             EventManager.Instance.RemoveListener<GameInitializeLevelEvent>(GameInitializeLevel);
             EventManager.Instance.RemoveListener<LevelReadyEvent>(LevelReady);
-
+            EventManager.Instance.RemoveListener<DieEvent>(PlayerDied);
         }
 
         protected override void Awake() {
@@ -65,6 +66,9 @@
         }
 
         protected virtual void LevelReady(LevelReadyEvent e) {
+        }
+
+        protected virtual void PlayerDied(DieEvent e) {
         }
     }
 }

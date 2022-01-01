@@ -7,6 +7,7 @@ public class Layers : MonoBehaviour {
     [SerializeField] public LayerMask LadderLayerMask;
     [SerializeField] public LayerMask MovingPlateformLayerMask;
     [SerializeField] public LayerMask PlayerLayerMask;
+    [SerializeField] public LayerMask DestroyProjectile;
 
     static Layers _Instance;
 
@@ -50,5 +51,15 @@ public class Layers : MonoBehaviour {
     // Return true if the collider is on a ladder
     public bool IsOnLadder(Collider2D collider) {
         return BoxCastToLayer(collider, LadderLayerMask);
+    }
+
+    // Return true if the collider collided with a layers that destroyes projectile
+    public bool IsDestroyedByTerrain(Collider2D collider) {
+        return CheckIfCollidedLayerIsSelectedLayer(DestroyProjectile, collider.gameObject.layer);
+    }
+
+    // Return true if hitting the player
+    public bool IsPlayer(Collider2D collider) {
+        return CheckIfCollidedLayerIsSelectedLayer(PlayerLayerMask, collider.gameObject.layer);
     }
 }

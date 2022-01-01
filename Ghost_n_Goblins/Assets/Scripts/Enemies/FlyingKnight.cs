@@ -8,6 +8,8 @@ public class FlyingKnight : Enemy {
 
     float _Y;
 
+    bool _isFacingPlayer = false;
+
     CurveLinearInterpo interpo;
 
     void Start() {
@@ -35,6 +37,10 @@ public class FlyingKnight : Enemy {
     }
 
     protected override void PlayerDetected() {
+        if (!FacingPlayer() && !_isFacingPlayer) {
+            FacePlayer();
+            _isFacingPlayer = true;
+        }
         StartCoroutine(MovementCoroutine());
     }
 }

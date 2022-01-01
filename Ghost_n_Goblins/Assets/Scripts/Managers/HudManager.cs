@@ -112,8 +112,8 @@
             // Change the number of lives displayed on the UI
             int actualLives = _Lives.Count;
             float imageWidth = _LifePrefab.transform.GetComponent<Image>().preferredWidth * _LifePrefab.transform.localScale.x;
-            if (NLives == actualLives) return;
 
+            if (NLives == actualLives) return;
             else if(NLives > actualLives) {
                 for (int i = _Lives.Count; i < NLives; i++) {
                     GameObject live = Instantiate(_LifePrefab) as GameObject;
@@ -122,10 +122,10 @@
                     _Lives.Add(live);
                 }
             }
-
             else if(NLives < actualLives) {
-                for(int i = actualLives; i > NLives - actualLives; i--) {
-                    _Lives.RemoveAt(i);
+                for(int i = _Lives.Count; i > NLives; i--) {
+                    Destroy(_Lives[i - 1]);
+                    _Lives.RemoveAt(i - 1);
                 }
             }
         }

@@ -3,17 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour {
-    [SerializeField] GameObject _EnemyToBeSpawned; //the prefab the spawner will spawn
-    [SerializeField] float _MaxEnemyOnScreen; // max number of enemies on screen at a given time
-    [SerializeField] int _MaxEnemySpawning; //nb of enemy that the spawner will spawn in total
-    [SerializeField] bool _InfiniteSpawning; //if there is no limite (so above is useless)
-    [SerializeField] Transform _SpawnerStart;
-    [SerializeField] Transform _SpawnerEnd; // the spawner will spawn enemy between start & end
-    [SerializeField] bool _Flying; // if horizontal spawn (otherwise it's vertical)
-    [SerializeField] bool _SpawnNearPlayer; //not available for flying units
+    [Header("Generic settings")]
+    [Tooltip("Spawned prefab")]
+    [SerializeField] GameObject _EnemyToBeSpawned;
+    [Tooltip("Max number of enemies on screen at a given time")]
+    [SerializeField] float _MaxEnemyOnScreen;
+    [Tooltip("Total number of enemies that will spawn from this spawner")]
+    [SerializeField] int _MaxEnemySpawning;
+    [Tooltip("Is the spawning infinite ?")]
+    [SerializeField] bool _InfiniteSpawning;
+    [Tooltip("Is the spawner horizontal ? (Otherwise it's vertical)")]
+    [SerializeField] bool _Flying;
+    [Tooltip("Range around the player")]
     [SerializeField] float _NearPlayerSpawnRange;
+    [Tooltip("Cooldown between spawns")]
     [SerializeField] float _SpawnCooldown;
-    [SerializeField] float _ySpawnCoordinate; //not available for flying units
+    [SerializeField] int _DetectionRange; //for vertical spawners
+
+
+    [Header("Ground unit options")]
+    [Tooltip("Spawn near the player ? (Not available for flying units)")]
+    [SerializeField] bool _SpawnNearPlayer;
+    [Tooltip("Y coordinate to spawn to (Not available for flying units)")]
+    [SerializeField] float _ySpawnCoordinate;
+
+    [Header("Spawner's bounds")]
+    [Tooltip("Enemies will spawn between start & end")]
+    [SerializeField] Transform _SpawnerStart;
+    [Tooltip("Enemies will spawn between start & end")]
+    [SerializeField] Transform _SpawnerEnd;
 
     float _ElapsedTime = 0;
     int _EnemySpawnedCount;
@@ -23,7 +41,7 @@ public class Spawner : MonoBehaviour {
     private void Update() {
         UpdateList();
         if (_OnScreenEnemies.Count < _MaxEnemyOnScreen && (_EnemySpawnedCount < _MaxEnemySpawning || _InfiniteSpawning) && _ElapsedTime > _SpawnCooldown) {
-            if(CheckIfNearPlayer()) SpawnEnemy();
+            if(CheckIfPlayerInBounds()) SpawnEnemy();
             _ElapsedTime = 0;
         }
         _ElapsedTime += Time.deltaTime;
@@ -46,8 +64,14 @@ public class Spawner : MonoBehaviour {
         _OnScreenEnemies.Add(go);
     }
 
-    bool CheckIfNearPlayer() {
+    bool CheckIfPlayerInBounds() {
         Vector3 playerPosition = LevelInterface.Instance.Player.transform.position;
-        return _SpawnNearPlayer && !_Flying && playerPosition.x < _SpawnerEnd.position.x && playerPosition.x > _SpawnerStart.position.x;
+        if (_Flying) return DetectInRange(_DetectionRange);
+        else return playerPosition.x < _SpawnerEnd.position.x && playerPosition.x > _SpawnerStart.position.x;
+    }
+
+    bool DetectInRange(float radius) { //todo: move in layers class
+        Collider2D collider2D = Physics2D.OverlapCircle(_SpawnerStart.position, radius / 2, Layers.Instance.PlayerLayerMask);
+        return collider2D != null;
     }
 }

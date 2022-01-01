@@ -15,21 +15,27 @@ public class Player : SimpleGameStateObserver {
     [SerializeField] List<Behaviour> _Behaviours;
     Move MovingScript;
     Shoot ShootingScript;
+    bool _isInvicible;
+    [SerializeField] int _InvicibilityDuration;
+    [SerializeField] float _BlinkDuration;
 
     int currentWeapon = 0; //temporary
+    MeshRenderer _MeshRenderer;
+
+    bool _HasArmor = true;
 
     #region Player Implementation
 
-    //TEMPORARY
     private void Update() {
         if (Input.GetKeyDown(KeyCode.G)) EventManager.Instance.Raise(new WeaponSwapEvent() { eWeapon = (Weapon)(++currentWeapon % 5) });
+        if (Input.GetKeyDown(KeyCode.L)) EventManager.Instance.Raise(new DieEvent());
     }
-    // END OF TEMPORARY
 
     protected override void Awake() {
         base.Awake();
         MovingScript = GetComponent<Move>();
         ShootingScript = GetComponent<Shoot>();
+        _MeshRenderer = GetComponentInChildren<MeshRenderer>();
     }
     #endregion
 
@@ -41,8 +47,29 @@ public class Player : SimpleGameStateObserver {
     }
 
     public void TakeDamage() {
-        //todo: perdre l'armure puis perdre un coeur & recommencer au debut du niveau
-        Debug.Log("damage");
+        if (!_isInvicible) {
+            if (_HasArmor) LoseArmor();
+            else Die();
+            _isInvicible = true;
+            StartCoroutine(DamageCoroutine());
+        }
+    }
+
+    void LoseArmor() {
+        //todo: just lose armor: component remove (todo when the playerh as armour)
+    }
+
+    void Die() {
+        EventManager.Instance.Raise(new DieEvent());
+    }
+
+    IEnumerator DamageCoroutine() {
+        float duration = 0;
+        while(duration < _InvicibilityDuration) {
+            _MeshRenderer.enabled = !_MeshRenderer.enabled;
+            duration += _BlinkDuration;
+            yield return new WaitForSeconds(_BlinkDuration);
+        }
     }
 
     void SetRigidbodyKinematic(bool isKinematic) {
@@ -98,7 +125,7 @@ public class Player : SimpleGameStateObserver {
 
     #region Collision stuff
     private void OnTriggerEnter2D(Collider2D collision) {
-        //Add water stuff (layer to water -> death)
+        //todo: Add water stuff (layer to water -> death)
         IScore score = collision.gameObject.GetComponent<IScore>();
         Key key = collision.gameObject.GetComponent<Key>();
 
@@ -108,7 +135,6 @@ public class Player : SimpleGameStateObserver {
         }
 
         if (key != null) {
-            //TEMP
             EventManager.Instance.Raise(new GameVictoryEvent());
         }
     }

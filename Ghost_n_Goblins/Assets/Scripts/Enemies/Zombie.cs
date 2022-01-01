@@ -5,6 +5,10 @@ using UnityEngine;
 public class Zombie : Enemy {
     [SerializeField] float _MovementSpeed;
 
+    private void Start() {
+        Physics2D.IgnoreLayerCollision(11, 8);
+    }
+
     protected override void Attack() { //No Attack only run & damage if hit the player
     }
 
@@ -12,8 +16,8 @@ public class Zombie : Enemy {
     }
 
     protected override void PlayerDetected() {
-        RunTowardPlayer(_MovementSpeed);
-        //todo les faire sauter un obstacle: raycast pour detecter un obstacle + saut
-        //todo: les faire se retourner face au player
+        if (!FacingPlayer()) FacePlayer();
+
+        GoForward(_MovementSpeed);
     }
 }
