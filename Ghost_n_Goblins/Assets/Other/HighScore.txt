@@ -1,0 +1,5 @@
+joueur1:10
+joueur2:9
+joueur3:7
+joueur4:6
+joueur5:5
