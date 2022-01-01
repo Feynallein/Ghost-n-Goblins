@@ -21,6 +21,9 @@
         [Tooltip("Panel displayed when victory")]
         [SerializeField] GameObject _VictoryPanel;
 
+        [SerializeField] TextAsset _HighScoreFile;
+        [SerializeField] int _HighScoreTextWidth;
+
         // List of all panels
         List<GameObject> _AllPanels;
         #endregion
@@ -37,6 +40,7 @@
             // Register every panels
             base.Awake();
             RegisterPanels();
+            //todo: set menu panel's text to: HighScore.GetHighScore(_HighScoreFile, _HighScoreTextWidth);
         }
 
         private void Update() {
@@ -71,6 +75,10 @@
             // Open a specific panel
             foreach (var item in _AllPanels)
                 if (item) item.SetActive(item == panel);
+        }
+
+        void SetNewHighScore(int newScore, string name) {
+            HighScore.WriteHighScore(_HighScoreFile, newScore, name);
         }
         #endregion
 
@@ -118,6 +126,7 @@
 
         protected override void GameOver(GameOverEvent e) {
             OpenPanel(_GameOverPanel);
+            SetNewHighScore(GameManager.Instance.Score, "Joueur " + new System.Random().Next(100));
         }
 
         protected override void GameVictory(GameVictoryEvent e) {
