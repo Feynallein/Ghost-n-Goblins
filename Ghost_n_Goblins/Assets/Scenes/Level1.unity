@@ -193,7 +193,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 252541231
-  m_SortingLayer: 3
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -648,7 +648,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 204766155
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.13999999, y: 0.13999999, z: 0}
@@ -15083,7 +15083,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1310056949
-  m_SortingLayer: 4
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.13999999, y: 0.13999999, z: 0}
@@ -17890,7 +17890,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -409524951
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.13999999, y: 0.13999999, z: 0}
@@ -19671,7 +19671,7 @@ Tilemap:
       - {fileID: 21300000, guid: 4f022c88555b6124fa7a175f48bfb2df, type: 3}
       - {fileID: 21300000, guid: df62a18642b021a44a67c34a20008caa, type: 3}
       - {fileID: 21300000, guid: 1a32dbef38a49374794e3a85782e3028, type: 3}
-      m_AnimationSpeed: 15.000001
+      m_AnimationSpeed: 15
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 125, y: -2, z: 0}
@@ -19740,7 +19740,7 @@ Tilemap:
       - {fileID: 21300000, guid: 4f022c88555b6124fa7a175f48bfb2df, type: 3}
       - {fileID: 21300000, guid: df62a18642b021a44a67c34a20008caa, type: 3}
       - {fileID: 21300000, guid: 1a32dbef38a49374794e3a85782e3028, type: 3}
-      m_AnimationSpeed: 15.000001
+      m_AnimationSpeed: 15
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 153, y: -2, z: 0}
@@ -19809,7 +19809,7 @@ Tilemap:
       - {fileID: 21300000, guid: 4f022c88555b6124fa7a175f48bfb2df, type: 3}
       - {fileID: 21300000, guid: df62a18642b021a44a67c34a20008caa, type: 3}
       - {fileID: 21300000, guid: 1a32dbef38a49374794e3a85782e3028, type: 3}
-      m_AnimationSpeed: 15.000001
+      m_AnimationSpeed: 15
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 172, y: -2, z: 0}
@@ -20586,7 +20586,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 252541231
-  m_SortingLayer: 3
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.13999999, y: 0.13999999, z: 0}
@@ -21003,7 +21003,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1318579991
-  m_SortingLayer: 5
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.13999999, y: 0.13999999, z: 0}
@@ -21184,7 +21184,7 @@ GameObject:
   - component: {fileID: 1962134580}
   - component: {fileID: 1962134579}
   - component: {fileID: 1962134578}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Plateforms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21259,7 +21259,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1310056949
-  m_SortingLayer: 4
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.13999999, y: 0.13999999, z: 0}

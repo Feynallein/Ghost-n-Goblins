@@ -13,15 +13,11 @@ TagManager:
   - Water
   - UI
   - Ground
-  - Plateforms
-  - Obstacles
+  - Obstacle
   - Ladder
-  - Moving Plateform
-<<<<<<< HEAD
-  - Weapon
-=======
-  - Enemies
->>>>>>> Martin
+  - Enemy
+  - MovingPlateform
+  - Plateform
   - 
   - 
   - 
@@ -45,22 +41,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Water
-    uniqueID: 3885442345
-    locked: 0
-  - name: Background Tiles
-    uniqueID: 204766155
-    locked: 0
-  - name: Objects
-    uniqueID: 252541231
-    locked: 0
-  - name: Plateformes
-    uniqueID: 1310056949
-    locked: 0
-  - name: Ladders
-    uniqueID: 2976387305
-    locked: 0
-  - name: Items
-    uniqueID: 1717166355
     locked: 0

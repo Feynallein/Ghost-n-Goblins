@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 993208408111110586}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: ProjectileSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3547475507246474497}
   - component: {fileID: 4278877517372917806}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9125444874045423495}
   - component: {fileID: 5444114258384821358}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: GreenMonsterPref
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 9125444874321695086}
   - component: {fileID: 9125444874321695080}
   - component: {fileID: 9125444874321695081}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: Gfx
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -6,7 +6,7 @@ public class Zombie : Enemy {
     [SerializeField] float _MovementSpeed;
 
     private void Start() {
-        Physics2D.IgnoreLayerCollision(11, 8);
+        Physics2D.IgnoreLayerCollision(9, 7); //Enemy & obstacle
     }
 
     protected override void Attack() { //No Attack only run & damage if hit the player

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1005677340632661926}
   - component: {fileID: 1005677340632661925}
   - component: {fileID: 1005677340632661924}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: Gfx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 1005677341128325765}
   - component: {fileID: 1005677341128325764}
   - component: {fileID: 6417623316334114474}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: FlyingKnightPref
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6590420154919515576}
   - component: {fileID: 6442628940875038680}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 7038572287851193240}
   - component: {fileID: 2736117901032001461}
   - component: {fileID: 1434335434928300605}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: facing dir
   m_TagString: Untagged
   m_Icon: {fileID: 0}

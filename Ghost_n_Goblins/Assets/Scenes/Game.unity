@@ -1332,9 +1332,9 @@ MonoBehaviour:
   - weapon: 0
     weaponPrefab: {fileID: 7048995655440342349, guid: c8c67b6abacba2e4189d67c4be879204, type: 3}
   - weapon: 1
-    weaponPrefab: {fileID: 7048995655440342349, guid: c8c67b6abacba2e4189d67c4be879204, type: 3}
+    weaponPrefab: {fileID: 2885933593767780027, guid: afe4490281b9a3b42a9b6f0bd548fb49, type: 3}
   - weapon: 2
-    weaponPrefab: {fileID: 7048995655440342349, guid: c8c67b6abacba2e4189d67c4be879204, type: 3}
+    weaponPrefab: {fileID: 6711983105476948562, guid: 8e3dbdf3d40c0104daf1d33c18b95b74, type: 3}
   - weapon: 3
     weaponPrefab: {fileID: 6625708298018116160, guid: ef8acf54767e2fa439dd14e552f86ae9, type: 3}
   - weapon: 4
@@ -2114,10 +2114,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GroundLayerMask:
     serializedVersion: 2
-    m_Bits: 1984
+    m_Bits: 1216
   LadderLayerMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 256
   MovingPlateformLayerMask:
     serializedVersion: 2
     m_Bits: 1024
@@ -2126,7 +2126,7 @@ MonoBehaviour:
     m_Bits: 8
   DestroyProjectile:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
 --- !u!4 &1284979925
 Transform:
   m_ObjectHideFlags: 0

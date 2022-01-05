@@ -3,48 +3,12 @@ namespace LinearInterpolation3D {
     using System.Collections.Generic;
     using UnityEngine;
 
-    public class Point3D { //tmp: replace with vector3??
-        public float x;
-        public float y;
-        public float z;
-
-        public Point3D(float a, float b, float c) {
-            x = a;
-            y = b;
-            z = c;
-        }
-
-        public Vector3 toVector3() {
-            return new Vector3(this.x, this.y, this.z);
-        }
-
-        public override string ToString() {
-            return "(" + this.x + "; " + this.y + "; " + this.z + ")";
-        }
-
-        public static Point3D operator -(Point3D a, Point3D b) {
-            return new Point3D(a.x - b.x, a.y - b.y, a.z - b.z);
-        }
-
-        public static Point3D operator +(Point3D a, Point3D b) {
-            return new Point3D(a.x + b.x, a.y + b.y, a.z + b.z);
-        }
-
-        public static Point3D operator *(Point3D a, float b) {
-            return new Point3D(a.x * b, a.y * b, a.z * b);
-        }
-
-        public float Distance(Point3D b) {
-            return Mathf.Sqrt(Mathf.Pow(b.x - this.x, 2) + Mathf.Pow(b.y - this.y, 2) + Mathf.Pow(b.z - this.z, 2));
-        }
-    }
-
     public class CurveLinearInterpo {
         public class LogPoint {
             public float length;
-            public Point3D point;
+            public Vector3 point;
 
-            public LogPoint(float lgt, Point3D pt) {
+            public LogPoint(float lgt, Vector3 pt) {
                 length = lgt;
                 point = pt;
             }
@@ -55,7 +19,7 @@ namespace LinearInterpolation3D {
         float _TotalLength = 0;
         bool _isClosed;
 
-        public delegate Point3D MathFunction(float t);
+        public delegate Vector3 MathFunction(float t);
 
         /// <summary>
         /// Constructor
@@ -69,8 +33,8 @@ namespace LinearInterpolation3D {
         /// <param name="isClosed"></param>
         public CurveLinearInterpo(MathFunction function, float tMin, float tMax, int nbPoints, bool isClosed = false) {
             _isClosed = isClosed;
-            Point3D currentPoint;
-            Point3D previousPoint = function(tMin);
+            Vector3 currentPoint;
+            Vector3 previousPoint = function(tMin);
             int flooredTotalLength;
             float step = (tMax - tMin) / (nbPoints - 1);
 
@@ -79,7 +43,7 @@ namespace LinearInterpolation3D {
             for (float j = 0; j <= nbPoints - 1; j++) {
                 float t = tMin + step * j;
                 currentPoint = function(t);
-                _TotalLength += currentPoint.Distance(previousPoint);
+                _TotalLength += Vector3.Distance(currentPoint, previousPoint);
                 flooredTotalLength = Mathf.FloorToInt(_TotalLength);
 
                 for (int i = _Indexes.Count; i < flooredTotalLength; i++) {
@@ -92,7 +56,7 @@ namespace LinearInterpolation3D {
 
             if (_isClosed) {
                 LogPoint firstLogPoint = _Points[0];
-                _TotalLength += previousPoint.Distance(firstLogPoint.point);
+                _TotalLength += Vector3.Distance(previousPoint, firstLogPoint.point);
                 _Points.Add(new LogPoint(_TotalLength, firstLogPoint.point));
                 flooredTotalLength = Mathf.FloorToInt(_TotalLength);
 
@@ -109,7 +73,7 @@ namespace LinearInterpolation3D {
         /// </summary>
         /// <param name="dist"> the distance to the origin </param>
         /// <returns> The point P on the curve at [dist] from the origin using the linear interpolation formula</returns>
-        public Point3D GetPositionFromDistance(float dist) {
+        public Vector3 GetPositionFromDistance(float dist) {
             int flooredDistance;
             float distance = dist;
             int idx;
@@ -136,26 +100,26 @@ namespace LinearInterpolation3D {
     }
 
     public static class ParametricEquations {
-        public static Point3D Sin(float t) {
-            return new Point3D(t, Mathf.Sin(t), 0);
+        public static Vector3 Sin(float t) {
+            return new Vector3(t, Mathf.Sin(t), 0);
         }
 
-        public static Point3D NegSin3(float t) {
-            return new Point3D(-t, Mathf.Sin(t) * 3, 0);
+        public static Vector3 NegSin3(float t) {
+            return new Vector3(-t, Mathf.Sin(t) * 3, 0);
         }
 
-        public static Point3D Lissajous(float t) {
+        public static Vector3 Lissajous(float t) {
             float a = 30;
             float b = 30;
             float theta = t % (2 * Mathf.PI);
             float phi = 0.2f;
             float p = 3;
             float q = 4;
-            return new Point3D(a * Mathf.Sin(theta * p), b * Mathf.Sin(q * theta + phi), 0);
+            return new Vector3(a * Mathf.Sin(theta * p), b * Mathf.Sin(q * theta + phi), 0);
         }
 
-        public static Point3D Lemniscate(float t) {
-            return new Point3D(Mathf.Sin(t) / (1 + Mathf.Pow(Mathf.Cos(t), 2)), Mathf.Sin(t) * Mathf.Cos(t) / (1 + Mathf.Pow(Mathf.Cos(t), 2)), 0);
+        public static Vector3 Lemniscate(float t) {
+            return new Vector3(Mathf.Sin(t) / (1 + Mathf.Pow(Mathf.Cos(t), 2)), Mathf.Sin(t) * Mathf.Cos(t) / (1 + Mathf.Pow(Mathf.Cos(t), 2)), 0);
         }
     }
 }
