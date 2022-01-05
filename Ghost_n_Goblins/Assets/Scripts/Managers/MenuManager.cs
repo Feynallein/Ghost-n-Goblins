@@ -110,6 +110,7 @@
         /* Displaying correspondent panel */
         protected override void GameMenu(GameMenuEvent e) {
             OpenPanel(_MainMenuPanel);
+            HighScore.GetHighScore(_HighScoreFile, _HighScoreTextWidth);
         }
 
         protected override void GamePlay(GamePlayEvent e) {
@@ -130,7 +131,7 @@
         }
 
         protected override void GameVictory(GameVictoryEvent e) {
-            OpenPanel(_VictoryPanel);
+            OpenPanel(_VictoryPanel);           
         }
         #endregion
     }
