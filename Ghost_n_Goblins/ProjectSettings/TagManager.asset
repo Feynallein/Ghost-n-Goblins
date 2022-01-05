@@ -11,6 +11,12 @@ TagManager:
   - 
   - Water
   - UI
+  - Ground
+  - Obstacle
+  - Ladder
+  - Enemy
+  - MovingPlateform
+  - Plateform
   - 
   - 
   - 

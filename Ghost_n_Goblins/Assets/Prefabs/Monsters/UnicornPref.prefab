@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1353885113287855168}
   - component: {fileID: 5257981826773849559}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   - component: {fileID: 6277469059515421627}
   - component: {fileID: 6277469059515421625}
   - component: {fileID: 6277469059515421626}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: 'temp: facing dir'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 6277469059670358047}
   - component: {fileID: 6277469059670358045}
   - component: {fileID: 6277469059670358046}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: Gfx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 6277469059931202739}
   - component: {fileID: 6277469059931202738}
   - component: {fileID: -5370238917197598571}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: UnicornPref
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -273,7 +273,6 @@ MonoBehaviour:
   _DetectionRange: 15
   _JumpHeight: 6
   _JumpCooldown: 0.5
-  _HorizontalJumpOffset: 1
   _MovementSpeed: 2
 --- !u!50 &-5370238917197598571
 Rigidbody2D:

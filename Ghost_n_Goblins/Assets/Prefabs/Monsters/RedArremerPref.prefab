@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1302793878}
-  m_Layer: 0
-  m_Name: SpawnPoint
+  - component: {fileID: 476936133752642814}
+  m_Layer: 9
+  m_Name: RedArremerPref
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38,10 +38,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2230309044563088694}
-  - component: {fileID: 49170845}
-  m_Layer: 0
-  m_Name: RedArremerPref
+  - component: {fileID: 476936135021741712}
+  - component: {fileID: 476936135021741709}
+  - component: {fileID: 476936135021741710}
+  - component: {fileID: 6091930010168161416}
+  m_Layer: 9
+  m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

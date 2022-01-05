@@ -15,8 +15,6 @@ public abstract class Enemy : MonoBehaviour, IScore {
     [Tooltip("Monster's projectile spawn point")]
     [SerializeField] protected Transform _ProjectileSpawnPoint;
 
-
-    //Todo tooltips
     [SerializeField] protected float _AttackRange;
     [SerializeField] protected float _DetectionRange;
 
@@ -28,7 +26,7 @@ public abstract class Enemy : MonoBehaviour, IScore {
     #region Enemy Implementation
     private void Awake() {
         _Rigidbody2D = GetComponent<Rigidbody2D>();
-        Physics2D.IgnoreLayerCollision(3, 11);
+        Physics2D.IgnoreLayerCollision(Layers.Instance.PlayerLayerMask, 9); // Player & Enemy
     }
 
     private void Update() {
@@ -67,15 +65,14 @@ public abstract class Enemy : MonoBehaviour, IScore {
         _OnScreenProjectiles.Remove(projectile);
     }
 
-    bool DetectInRange(float radius) { //todo: move in layers class
+    bool DetectInRange(float radius) {
         Collider2D collider2D = Physics2D.OverlapCircle(transform.position, radius / 2, Layers.Instance.PlayerLayerMask);
         return collider2D != null;
     }
     #endregion
 
     private void OnCollisionEnter2D(Collision2D collision) {
-        if (Layers.Instance.IsPlayer(collision.collider)) print("ok");//LevelInterface.Instance.Player.GetComponent<Player>().TakeDamage(); 
-        //todo: fix
+        if (Layers.Instance.IsPlayer(collision.collider)) LevelInterface.Instance.Player.GetComponent<Player>().TakeDamage(); 
     }
 
     #region Abstract methods

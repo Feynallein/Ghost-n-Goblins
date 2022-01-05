@@ -22,11 +22,11 @@ public class FlyingKnight : Enemy {
         Vector3 origin = transform.position;
         origin.y = _Y;
         while(distance < interpo.TotalLength) {
-            transform.position = origin + interpo.GetPositionFromDistance(distance).toVector3();
+            transform.position = origin + interpo.GetPositionFromDistance(distance);
             distance += _Speed;
             yield return null;
         }
-        transform.position = origin + interpo.GetPositionFromDistance(interpo.TotalLength).toVector3();
+        transform.position = origin + interpo.GetPositionFromDistance(interpo.TotalLength);
         StartCoroutine(MovementCoroutine());
     }
 

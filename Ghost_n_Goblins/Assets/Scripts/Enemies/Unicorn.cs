@@ -12,7 +12,7 @@ public class Unicorn : Enemy {
 
     private void Start() {
         _BoxCollider2D = GetComponentsInChildren<BoxCollider2D>()[0];
-        Physics2D.IgnoreLayerCollision(11, 8);
+        Physics2D.IgnoreLayerCollision(9, 7); //Enemy & Obstacle
     }
 
     protected override void Attack() {

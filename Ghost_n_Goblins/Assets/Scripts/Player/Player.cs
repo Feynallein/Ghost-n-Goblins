@@ -56,6 +56,7 @@ public class Player : SimpleGameStateObserver {
     }
 
     void LoseArmor() {
+        _HasArmor = false;
         //todo: just lose armor: component remove (todo when the playerh as armour)
     }
 
@@ -70,6 +71,7 @@ public class Player : SimpleGameStateObserver {
             duration += _BlinkDuration;
             yield return new WaitForSeconds(_BlinkDuration);
         }
+        _isInvicible = false;
     }
 
     void SetRigidbodyKinematic(bool isKinematic) {

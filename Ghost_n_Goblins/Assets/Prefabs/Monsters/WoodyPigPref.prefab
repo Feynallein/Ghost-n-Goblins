@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7038599154275654107}
   - component: {fileID: 7038599154275654116}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   - component: {fileID: 7038599154408791181}
   - component: {fileID: 7038599154408791176}
   - component: {fileID: 7038599154408791183}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: temp (nose)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 7038599154585392963}
   - component: {fileID: 7038599154585392973}
   - component: {fileID: 7038599154585392974}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WoodyPigPref
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +227,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7038599154614320914}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ProjectileSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 7038599155405952404}
   - component: {fileID: 7038599155405952406}
   - component: {fileID: 7038599155405952405}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Gfx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
