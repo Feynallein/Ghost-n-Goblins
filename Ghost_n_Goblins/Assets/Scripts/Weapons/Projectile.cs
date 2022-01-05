@@ -25,7 +25,7 @@ public abstract class Projectile : MonoBehaviour {
 	{
         Enemy enemy = collision.gameObject.GetComponent<Enemy>();
 		if (enemy != null)
-		{ 
+		{
 			enemy.TakeDamage(_Damage);
 			Destroy(gameObject);
 		}

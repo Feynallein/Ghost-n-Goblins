@@ -41,7 +41,7 @@ public class RedArremer : Enemy
     // Start is called before the first frame update
     void Start()
     {
-        
+        Physics2D.IgnoreLayerCollision(9, 7); //Enemy & obstacle
     }
 
     // Update is called once per frame
