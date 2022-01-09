@@ -2127,6 +2127,9 @@ MonoBehaviour:
   DestroyProjectile:
     serializedVersion: 2
     m_Bits: 192
+  WaterLayer:
+    serializedVersion: 2
+    m_Bits: 16
 --- !u!4 &1284979925
 Transform:
   m_ObjectHideFlags: 0

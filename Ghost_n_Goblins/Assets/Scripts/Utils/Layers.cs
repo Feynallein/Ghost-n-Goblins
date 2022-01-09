@@ -8,6 +8,7 @@ public class Layers : MonoBehaviour {
     [SerializeField] public LayerMask MovingPlateformLayerMask;
     [SerializeField] public LayerMask PlayerLayerMask;
     [SerializeField] public LayerMask DestroyProjectile;
+    [SerializeField] public LayerMask WaterLayer;
 
     static Layers _Instance;
 
@@ -21,6 +22,11 @@ public class Layers : MonoBehaviour {
     // Return true if the collided layer is within selected layer mask
     public bool CheckIfCollidedLayerIsSelectedLayer(LayerMask selectedLayer, LayerMask collidedLayer) {
         return (selectedLayer & (1 << collidedLayer)) > 0;
+    }
+
+    // Return true if the player is in water
+    public bool Drowned(LayerMask layerMask) {
+        return CheckIfCollidedLayerIsSelectedLayer(WaterLayer, layerMask);
     }
 
     // Return true if the collided layer is within MovingPlateformLayerMask
