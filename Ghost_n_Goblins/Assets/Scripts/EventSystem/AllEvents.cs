@@ -62,6 +62,9 @@
 
     public class DieEvent : SDD.Events.Event {
     }
+
+    public class GainLifeEvent : SDD.Events.Event {
+    }
     #endregion
 
     #region MenuManager Events

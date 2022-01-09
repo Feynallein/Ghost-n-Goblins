@@ -100,6 +100,9 @@
 
             //Score Item
             EventManager.Instance.AddListener<ScoreItemEvent>(ScoreHasBeenGained);
+
+            // Other
+            EventManager.Instance.AddListener<GainLifeEvent>(GainLife);
         }
 
         public override void UnsubscribeEvents() {
@@ -114,6 +117,9 @@
 
             //Score Item
             EventManager.Instance.RemoveListener<ScoreItemEvent>(ScoreHasBeenGained);
+
+            // Other
+            EventManager.Instance.RemoveListener<GainLifeEvent>(GainLife);
         }
         #endregion
 
@@ -187,7 +193,12 @@
         }
         #endregion
 
-        #region GameState methods
+        #region GameState methode
+        private void GainLife(GainLifeEvent e) {
+            SetNLives(_NLives + 1);
+        }
+
+
         private void Menu() {
             SetTimeScale(1);
             _GameState = GameState.gameMenu;
