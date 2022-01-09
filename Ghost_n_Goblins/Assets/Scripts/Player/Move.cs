@@ -54,6 +54,8 @@ public class Move : MonoBehaviour {
 
     void LeftRightMove() {
         float hInput = Input.GetAxisRaw("Horizontal");
+        if (hInput < 0) transform.localRotation = Quaternion.Euler(0, 180, 0);
+        else transform.localRotation = Quaternion.Euler(0, 0, 0);
         float targetVelocity = hInput * _MovementSpeed;
         _Rigidbody2D.AddForce(new Vector2(targetVelocity - _Rigidbody2D.velocity.x, 0), ForceMode.VelocityChange);
     }

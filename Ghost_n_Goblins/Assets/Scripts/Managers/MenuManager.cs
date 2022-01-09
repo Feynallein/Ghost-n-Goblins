@@ -40,7 +40,7 @@
             // Register every panels
             base.Awake();
             RegisterPanels();
-            //todo: set menu panel's text to: HighScore.GetHighScore(_HighScoreFile, _HighScoreTextWidth);
+            //HighScore.GetHighScore(_HighScoreFile, _HighScoreTextWidth);
         }
 
         private void Update() {
@@ -110,7 +110,6 @@
         /* Displaying correspondent panel */
         protected override void GameMenu(GameMenuEvent e) {
             OpenPanel(_MainMenuPanel);
-            HighScore.GetHighScore(_HighScoreFile, _HighScoreTextWidth);
         }
 
         protected override void GamePlay(GamePlayEvent e) {

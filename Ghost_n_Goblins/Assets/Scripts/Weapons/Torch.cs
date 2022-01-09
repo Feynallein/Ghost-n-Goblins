@@ -26,16 +26,24 @@ public class Torch : Projectile
     private void Update()
     {
 		transform.Rotate(new Vector3(0, 0, -_RotateSpeed * Time.deltaTime));
-    }
+	}
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
+		Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+		if (enemy != null)
+		{
+			enemy.TakeDamage(_Damage);
+			Destroy(gameObject);
+			
+		}
+
 		if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
 		{
-			// Need to add the good object ==> This is placeholder in scene
 			if (_AshesPrefab)
-				Instantiate(_AshesPrefab, collision.transform.position, collision.transform.rotation);
-			Destroy(gameObject); 
+				Instantiate(_AshesPrefab, gameObject.transform.position, Quaternion.identity);
+			Destroy(gameObject);
 		}
+		
 	}
 }
