@@ -127,7 +127,6 @@ public class Player : SimpleGameStateObserver {
 
     #region Collision stuff
     private void OnTriggerEnter2D(Collider2D collision) {
-        //todo: Add water stuff (layer to water -> death)
         IScore score = collision.gameObject.GetComponent<IScore>();
         Key key = collision.gameObject.GetComponent<Key>();
 
@@ -138,6 +137,11 @@ public class Player : SimpleGameStateObserver {
 
         if (key != null) {
             EventManager.Instance.Raise(new GameVictoryEvent());
+        }
+
+        if (Layers.Instance.Drowned(collision.gameObject.layer)) {
+            Die();
+            StartCoroutine(DamageCoroutine());
         }
     }
     #endregion
