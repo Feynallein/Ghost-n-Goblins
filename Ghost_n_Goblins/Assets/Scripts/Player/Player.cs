@@ -30,6 +30,7 @@ public class Player : SimpleGameStateObserver {
         if (Input.GetKeyDown(KeyCode.G)) EventManager.Instance.Raise(new WeaponSwapEvent() { eWeapon = (Weapon)(++currentWeapon % 5) });
         if (Input.GetKeyDown(KeyCode.L)) EventManager.Instance.Raise(new DieEvent());
         if (Input.GetKeyDown(KeyCode.M)) EventManager.Instance.Raise(new GainLifeEvent());
+        if (Input.GetKeyDown(KeyCode.I)) _isInvicible = !_isInvicible;
     }
 
     protected override void Awake() {
