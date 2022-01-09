@@ -44,12 +44,5 @@ public class RedArremer : Enemy
     void Start()
     {
         Physics2D.IgnoreLayerCollision(9, 7); //Enemy & obstacle
-        //SpellAtPlayer();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

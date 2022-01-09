@@ -135,10 +135,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Score: 30
-  _Health: 10
+  _Health: 30
   _ProjectileSpawnPoint: {fileID: 4940867814087529820}
   _AttackRange: 10
-  _DetectionRange: 10
+  _DetectionRange: 5
   _RedFlame: {fileID: 8402130381257471661, guid: 80220c24939edb54b8c4f32c80c5bd16, type: 3}
   _RedFlameSpeed: 100
   _RedFlamesOnScreen: 1
