@@ -3,12 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - MovingPlateform
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - Ground
@@ -17,12 +18,6 @@ TagManager:
   - Enemy
   - MovingPlateform
   - Plateform
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
   - 
   - 
   - 

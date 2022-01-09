@@ -7,6 +7,10 @@ public class Goose : Enemy {
     [SerializeField] float _DestroyTimer;
     bool _Charged = false;
 
+    private void Start() {
+        //Physics2D.IgnoreLayerCollision(Layers.Instance.EnemyLayer, Layers.Instance.PlatformLayer);
+    }
+
     protected override void Attack() { // No attack they just launch themselves to the player
     }
 

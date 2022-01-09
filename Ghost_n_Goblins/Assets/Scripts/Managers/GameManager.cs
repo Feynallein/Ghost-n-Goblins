@@ -16,7 +16,7 @@
         private GameState _GameState;
         public bool IsPlaying { get { return _GameState == GameState.gamePlay; } }
 
-        public bool IsInMainMenu { get { return _GameState == GameState.gameMenu; } }
+        public bool isInMainMenu { get { return _GameState == GameState.gameMenu; } }
 
         public bool IsPausing { get { return _GameState == GameState.gamePause; } }
 
@@ -160,7 +160,7 @@
         }
 
         private void PlayButtonClicked(PlayButtonClickedEvent e) {
-            if(IsInMainMenu) InitializeLevel(true);
+            if(isInMainMenu || IsVictory || IsGameOver) InitializeLevel(true);
         }
 
         private void ResumeButtonClicked(ResumeButtonClickedEvent e) {
@@ -170,7 +170,7 @@
         private void EscapeButtonClicked(EscapeButtonClickedEvent e) {
             if (IsPlaying) Pause();
             else if (IsPausing) EventManager.Instance.Raise(new ResumeButtonClickedEvent());
-            else if (IsInMainMenu) EventManager.Instance.Raise(new QuitButtonClickedEvent());
+            else if (isInMainMenu) EventManager.Instance.Raise(new QuitButtonClickedEvent());
         }
 
         private void QuitButtonClicked(QuitButtonClickedEvent e) {

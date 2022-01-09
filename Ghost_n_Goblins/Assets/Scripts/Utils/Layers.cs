@@ -9,6 +9,9 @@ public class Layers : MonoBehaviour {
     [SerializeField] public LayerMask PlayerLayerMask;
     [SerializeField] public LayerMask DestroyProjectile;
     [SerializeField] public LayerMask WaterLayer;
+    [SerializeField] public LayerMask PlatformLayer;
+    [SerializeField] public LayerMask ObstacleLayer;
+    [SerializeField] public LayerMask EnemyLayer;
 
     static Layers _Instance;
 

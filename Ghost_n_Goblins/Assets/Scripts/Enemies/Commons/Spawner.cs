@@ -24,6 +24,7 @@ public class Spawner : MonoBehaviour {
     [Header("Ground unit options")]
     [Tooltip("Spawn near the player ? (Not available for flying units)")]
     [SerializeField] bool _SpawnNearPlayer;
+    [SerializeField] int _PlayerSafeZone;
     [Tooltip("Y coordinate to spawn to (Not available for flying units)")]
     [SerializeField] float _ySpawnCoordinate;
 
@@ -55,7 +56,7 @@ public class Spawner : MonoBehaviour {
         Vector3 position;
         _EnemySpawnedCount++;
         float playerX = LevelInterface.Instance.Player.transform.position.x;
-        if (_SpawnNearPlayer) position = new Vector3(Random.Range(playerX - _NearPlayerSpawnRange, playerX + _NearPlayerSpawnRange), _ySpawnCoordinate, 0);
+        if (_SpawnNearPlayer) position = new Vector3(Random.Range((playerX - _PlayerSafeZone) - _NearPlayerSpawnRange, (playerX + _PlayerSafeZone) + _NearPlayerSpawnRange), _ySpawnCoordinate, 0);
         else {
             if (_Flying) position = new Vector3(_SpawnerStart.position.x, Random.Range(_SpawnerStart.position.y, _SpawnerEnd.position.y), 0);
             else position = new Vector3(Random.Range(_SpawnerStart.position.x, _SpawnerEnd.position.x), _ySpawnCoordinate, 0);

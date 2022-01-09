@@ -48,7 +48,7 @@
             if (Input.GetMouseButtonDown(0) || Input.GetAxisRaw("Start") == 1) PlayButtonHasBeenClicked();
 
             // Restarting
-            //if (Input.GetAxisRaw("Start") == 1) return; // todo: restart from level 1
+            if (Input.GetAxisRaw("Start") == 1) PlayButtonHasBeenClicked();
 
             // Victory!!
             if (Input.GetAxisRaw("Jump") == 1) MainMenuButtonHasBeenClicked();

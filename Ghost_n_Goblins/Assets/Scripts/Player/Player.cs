@@ -27,6 +27,7 @@ public class Player : SimpleGameStateObserver {
     #region Player Implementation
 
     private void Update() {
+        // [CHEATS]
         if (Input.GetKeyDown(KeyCode.G)) EventManager.Instance.Raise(new WeaponSwapEvent() { eWeapon = (Weapon)(++currentWeapon % 5) });
         if (Input.GetKeyDown(KeyCode.L)) EventManager.Instance.Raise(new DieEvent());
         if (Input.GetKeyDown(KeyCode.M)) EventManager.Instance.Raise(new GainLifeEvent());

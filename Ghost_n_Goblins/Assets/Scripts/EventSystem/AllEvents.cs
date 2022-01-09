@@ -22,6 +22,7 @@
 
     public class GameVictoryEvent : SDD.Events.Event {
     }
+
     public class GameInitializeLevelEvent : SDD.Events.Event {
         public string eSceneName;
         public bool isNewGame;

@@ -30,7 +30,7 @@
             yield break; // Nothing
         }
 
-        //TEMPORARY
+        //TEMPORARY (cheat)
         private void Update() {
             if (GameManager.Instance.IsPlaying && _Boss == null) EventManager.Instance.Raise(new BossKilledEvent());
         }
@@ -56,6 +56,12 @@
         }
 
         IEnumerator LoadingAsyncScene(string name, bool isNewGame) {
+            // Removing similair scene if already loaded
+            foreach(Scene s in GetOpenScenes()) {
+                if ("Scenes/" + s.name == name) SceneManager.UnloadSceneAsync(s);
+            }
+         
+
             // Loading asynchronously a scene
             AsyncOperation load = SceneManager.LoadSceneAsync(name, LoadSceneMode.Additive);
             while (!load.isDone) yield return null; // loading screen would be here

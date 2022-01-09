@@ -25,8 +25,9 @@ public abstract class Enemy : MonoBehaviour, IScore {
 
     #region Enemy Implementation
     private void Awake() {
+        //Physics2D.IgnoreLayerCollision(Layers.Instance.PlayerLayerMask, Layers.Instance.EnemyLayer); this doesn't work that's why it's hardcodded below
+        //Physics2D.IgnoreLayerCollision(9, 3);
         _Rigidbody2D = GetComponent<Rigidbody2D>();
-        Physics2D.IgnoreLayerCollision(Layers.Instance.PlayerLayerMask, 9); // Player & Enemy
     }
 
     private void Update() {
