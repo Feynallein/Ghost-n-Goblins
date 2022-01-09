@@ -23,9 +23,4 @@ public class Axe : Projectile
 	{
 		transform.Rotate(new Vector3(0, 0, -_RotateSpeed * Time.deltaTime));
 	}
-	private void OnCollisionEnter2D(Collision2D collision)
-	{
-		if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
-			Destroy(gameObject);
-	}
 }

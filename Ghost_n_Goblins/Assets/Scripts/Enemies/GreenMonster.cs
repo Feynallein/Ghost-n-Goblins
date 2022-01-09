@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GreenMonster : Enemy {
     [Header("Monster specifications")]
-    [Tooltip("Monter's projectile prefab")]
+    [Tooltip("Monster's projectile prefab")]
     [SerializeField] GameObject _EyeBall;
     [SerializeField] float _EyeBallSpeed;
     [SerializeField] int _EyeBallsOnScreen;

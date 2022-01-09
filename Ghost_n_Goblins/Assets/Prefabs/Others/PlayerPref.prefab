@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 391929764561253940}
   m_Layer: 3
   m_Name: PlayerPref
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -165,6 +165,8 @@ MonoBehaviour:
   - {fileID: 391929764561253941}
   - {fileID: 391929764561253942}
   - {fileID: 391929764561253940}
+  _InvicibilityDuration: 0
+  _BlinkDuration: 0
 --- !u!50 &391929764561253930
 Rigidbody2D:
   serializedVersion: 4
